@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style type="text/css">
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-size: 100%;
+            font-size: 12px;
+            text-decoration: none;
+            margin: 0 auto;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+
+        a:link, a:visited, a:hover {
+            color: #000;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #f40;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        body {
+            font-size: 10px;
+            color: #000;
+            background: #eee;
+        }
+
+        .logo {
+            height: 75px;
+            width: 1100px;
+            margin: auto;
+            background: url(img/LOGO.png) no-repeat left;
+        }
+
+        .nav {
+            position: absolute;
+            float: left;
+            width: 0;
+            height: 0;
+        }
+
+        .menu {
+            position: relative;
+            top: 44px;
+            left: 280px;
+            width: 535px;
+            height: 31px;
+            background: url(img/navbg.gif) repeat-x;
+            padding-left: 7px;
+        }
+
+        .menu li {
+            float: left;
+            width: 107px;
+            height: 27px;
+            margin-top: 4px;
+            background: url(img/navline.gif) no-repeat right 3px;
+        }
+
+        .menu li span {
+            display: block;
+            width: 98px;
+            height: 27px;
+            margin-left: 4px;
+            text-align: center;
+            line-height: 27px;
+        }
+
+        .menu li span a, .menu .back a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .menu li span a:hover, .menu .back a:hover {
+            text-decoration: underline;
+        }
+
+        .menu li.current span {
+            background: url(img/tagbg.gif) no-repeat;
+        }
+
+        .menu li.current a {
+            font-weight: bold;
+            color: #00712E;
+        }
+
+        .header {
+            float: right;
+            height: 75px;
+            width: 180px;
+        }
+
+        .header ul li {
+            float: left;
+            padding-right: 15px;
+        }
+
+        .header ul li a {
+            display: block;
+            float: left;
+            height: 36px;
+            line-height: 36px;
+        }
+
+        .content {
+            background: #eee;
+            width: 100%;
+            padding-top: 50px;
+        }
+
+        .fa-footer {
+            background: #eee;
+            width: 100%;
+            height: 20px;
+            border-bottom: 2px solid #FF4400;
+        }
+
+        .footer {
+            height: 100px;
+            width: 550px;
+            margin: auto;
+            text-align: center;
+            padding-top: 5px;
+            line-height: 20px;
+        }
+
+        .main {
+            position: relative;
+            width: 750px;
+            padding-top: 26px;
+            text-align: center;
+        }
+
+        .main-tab {
+            position: absolute;
+            width: 104px;
+            height: 26px;
+            line-height: 26px;
+            background: #a4bed4;
+            left: 35px;
+            top: 0px;
+            border: 1px #000 solid;
+            border-bottom: none;
+            text-align: center;
+        }
+
+        .main-tab-ex {
+            border-bottom: 1px #000 solid;
+        }
+
+        .main-tab-ex table {
+            border-collapse: collapse;
+            border: 1px #000 solid;
+        }
+
+        .main-tab-ex td {
+            border: 1px #000 solid;
+            text-align: center;
+        }
+
+        .main-tab-ex-tr1 {
+            background: #a4bed4;
+        }
+
+        .main-tab-ex-tr2 {
+            background: #dbeaf9;
+        }
+
+        .main-tab-ex-tr3 {
+            background: #dbeaf6;
+            height: 50px;
+        }
+
+        .main-msg {
+            height: 100px;
+            padding: 0 200px 10px 200px;
+            background: #cbeae9;
+        }
+
+        .main-p {
+            background: #a4bed4;
+        }
+
+        .main-msg span {
+            display: inline-block;
+            width: 354px;
+            background: url(img/MEIDIAN.png) no-repeat;
+            height: 100px;
+            padding: 2px;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs
+/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/regist.js"></script>
+    <script type="text/javascript">
+    </script>
+    <title>我的订单</title>
+</head>
+<body>
+<div class="logo">
+    <div class=" nav">
+        <div class=" menu">
+            <ul>
+                <li class="current"><span><a href="../index.html">主页</a></span></li>
+                <li><span><a>精品店铺</a></span></li>
+                <li><span><a>咖啡饮品</a></span></li>
+                <li><span><a>甜品蛋糕</a></span></li>
+                <li><span><a>宴会直通车</a></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="header">
+        <div style="border-bottom:2px #4e4e4e solid; height:36px; padding-left:25px;">
+            <ul>
+                <li><a href="deliver goods.html">我的订单</a></li>
+                <li><a href="adminimenu.html">我的商品</a></li>
+
+            </ul>
+        </div>
+        <div style="margin:auto; width:100px; height:36px; line-height:36px;">
+            <a href="updateUser.html">王大锤</a>
+            <a style="margin-left:30px;" href="../index.html">退出</a>
+        </div>
+    </div>
+</div>
+<div style="border-top:1px #999 solid;"></div>
+<div class="content" style="border-top:none;">
+    <div class="main">
+        <div class="main-tab">订单详情</div>
+        <div class="main-tab-ex">
+            <table>
+                <colgroup>
+                    <col width="250"/>
+                    <col width="100"/>
+                    <col width="100"/>
+                    <col width="100"/>
+                    <col width="100"/>
+                    <col width="100"/>
+                </colgroup>
+                <tr class="main-tab-ex-tr1" height="26" style=" ">
+                    <td colspan="6">订单编号：12345</td>
+                </tr>
+                <tr class="main-tab-ex-tr2" height="50">
+                    <td colspan="2">点餐人信息：<a>王大锤</a><a style="padding-left:70px;">13456789012</a></td>
+                    <td>成交时间：</td>
+                    <td><a>2013-10-21</a> <a> 11:30~12:00</a></td>
+                    <td>要求配送时间：</td>
+                    <td><a>2013-10-21</a> <a> 11:30~12:00</a></td>
+                </tr>
+                <tr class="main-tab-ex-tr2">
+                    <td colspan="6">配送地点:<em>文二路391号西湖国际科技大厦A座101楼文二路391号西湖国际科技大厦A座101楼</em></td>
+                </tr>
+                <tr class="main-tab-ex-tr1" height="50">
+                    <td>菜名</td>
+                    <td>单价</td>
+                    <td>数量</td>
+                    <td>付款方式</td>
+                    <td>订单状态</td>
+                    <td>交易操作</td>
+                </tr>
+                <tr class="main-tab-ex-tr3">
+                    <td>菜名</td>
+                    <td>单价</td>
+                    <td>数量</td>
+                    <td rowspan="3">付款方式</td>
+                    <td rowspan="3">订单状态</td>
+                    <td rowspan="3"><a href="deliver goods.html">确认配送</a></td>
+                </tr>
+                <tr class="main-tab-ex-tr3">
+                    <td>菜名</td>
+                    <td>单价</td>
+                    <td>数量</td>
+                </tr>
+                <tr class="main-tab-ex-tr3">
+                    <td>菜名</td>
+                    <td>单价</td>
+                    <td>数量</td>
+                </tr>
+            </table>
+        </div>
+        <p class="main-p">客户留言</p>
+        <div class="main-msg">
+            <span>123</span>
+        </div>
+    </div>
+</div>
+<div class="fa-footer"></div>
+<div class="footer">
+    <p>项目中监制：吴明华</p>
+    <p>项目制作人：赖叶蕾丨周光利丨李思渊丨胡斌</p>
+    <p>技术支持：web前端-丁伟&nbsp;&nbsp;JAVA:xxx</p>
+    <p>实习项目：百航点餐系统</p>
+</div>
+</body>
+</html>

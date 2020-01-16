@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style type="text/css">
+        .ab {
+            position: absolute;
+            width: 115px;
+            padding-top: 30px;
+            height: 82px;
+            background: url(img/ok3.png);
+            top: 20px;
+            right: 140px;
+            _background: none;
+            _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="img/ok3.png");
+            cursor: pointer;
+        }
+
+        .ac {
+            width: 65px;
+            height: 50px;
+            margin: auto;
+            font-size: 9px;
+            text-align: center;
+        }
+
+        .ad {
+            background: url(img/PUSS.jpg) right bottom no-repeat;
+            width: 15px;
+            height: 15px;
+            padding: 16px 0 0 100px;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>无标题文档</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs
+/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/regist.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            bindListener();
+            $(".regsiter-add").click(function () {
+                $(".logo").append("<div class='ab'> <div class='ac'><h1 style='display:inline-block;font-size:9px;'>消息提示</h1><p style='display:inline-block;'>订单状态已修改</p></div><div class='ad'></div></div>");
+                bindListener();
+            });
+
+            function bindListener() {
+                $(".ad").click(function () {
+                    $(this).parent().remove();
+                });
+            };
+        });
+    </script>
+</head>
+
+<body>
+<div class="logo"></div>
+<button class="regsiter-add">123123</button>
+</body>
+</html>

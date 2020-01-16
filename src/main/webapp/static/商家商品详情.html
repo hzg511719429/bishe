@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style type="text/css">
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-size: 100%;
+            font-size: 12px;
+            text-decoration: none;
+            margin: 0 auto;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+
+        em {
+            font-variant: inherit;
+        }
+
+        a:link, a:visited, a:hover {
+            color: #000;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #000;
+        }
+
+        ol, ul, li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 10px;
+            color: #000;
+            background: #eee;
+        }
+
+        .logo {
+            height: 75px;
+            width: 1100px;
+            margin: auto;
+            background: url(img/LOGO.png) no-repeat left;
+        }
+
+        .nav {
+            position: absolute;
+            float: left;
+            width: 0;
+            height: 0;
+        }
+
+        .menu {
+            position: relative;
+            top: 44px;
+            left: 280px;
+            width: 535px;
+            height: 31px;
+            background: url(img/navbg.gif) repeat-x;
+            padding-left: 7px;
+        }
+
+        .menu li {
+            float: left;
+            width: 107px;
+            height: 27px;
+            margin-top: 4px;
+            background: url(img/navline.gif) no-repeat right 3px;
+        }
+
+        .menu li span {
+            display: block;
+            width: 98px;
+            height: 27px;
+            margin-left: 4px;
+            text-align: center;
+            line-height: 27px;
+        }
+
+        .menu li span a, .menu .back a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .menu li span a:hover, .menu .back a:hover {
+            text-decoration: underline;
+        }
+
+        .menu li.current span {
+            background: url(img/tagbg.gif) no-repeat;
+        }
+
+        .menu li.current a {
+            font-weight: bold;
+            color: #00712E;
+        }
+
+        .header {
+            float: right;
+            height: 75px;
+            width: 180px;
+        }
+
+        .header ul li {
+            float: left;
+            padding-right: 15px;
+        }
+
+        .header ul li a {
+            display: block;
+            float: left;
+            height: 36px;
+            line-height: 36px;
+        }
+
+        .content {
+            background: #fdfdfd;
+            width: 100%;
+        }
+
+        .fa-footer {
+            background: #fff;
+            width: 100%;
+            height: 20px;
+            border-bottom: 2px solid #FF4400;
+        }
+
+        .footer {
+            height: 100px;
+            width: 550px;
+            margin: auto;
+            text-align: center;
+            padding-top: 5px;
+            line-height: 20px;
+        }
+
+        .tab {
+            width: 1100px;
+            margin: auto;
+        }
+
+        .teb-property {
+            float: left;
+            padding: 20px 0 0 30px;
+            margin-left: 45px;
+            height: 334px;
+            width: 500px;
+            background: url(img/YOU.png) no-repeat;
+        }
+
+        .teb-property ul li {
+            width: 430px;
+            height: 50px;
+            border-bottom: 1px #999 dashed;
+        }
+
+        .teb-property ul li span {
+            display: inline-block;
+            padding-top: 20px;
+        }
+
+        .teb-property ul li a {
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+            line-height: 26px;
+            vertical-align: baseline;
+            text-align: center;
+        }
+
+        .sp {
+            float: left;
+            padding: 10px 10px 10px 10px;;
+            background: #0FF;
+            width: 452px;
+            height: 361px;
+        }
+
+        .sp-wrap {
+            display: none;
+            line-height: 0;
+            font-size: 0;
+            background: #eee;
+            position: relative;
+            border: 1px solid #E4E4E4;
+        }
+
+        .sp-large {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sp-large a img {
+            max-height: 300px;
+            width: 450px;
+            height: auto;
+            cursor: -webkit-zoom-in;
+            cursor: -moz-zoom-in;
+        }
+
+        .sp-large a {
+            display: inline-block;
+        }
+
+        .sp-thumbs {
+            width: 100%;
+            text-align: center;
+        }
+
+        .sp-thumbs img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .sp-thumbs a:link, .sp-thumbs a:visited {
+            border: 5px solid #eee;
+            display: inline-block;
+        }
+
+        .sp-thumbs a:hover, .sp-thumbs a:active, .sp-current {
+            border: 5px solid #5BC9B7 !important;
+        }
+
+        .sp-zoom {
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: zoom;
+            cursor: -webkit-zoom-out;
+            cursor: -moz-zoom-out;
+            display: none;
+        }
+
+        .tab-list {
+            width: 1100px;
+            height: 300px;
+            border: 1px #333 dashed;
+        }
+
+        .tab-list-head {
+            height: 27px;
+            background: #f7fafe;
+        }
+
+        .tab-list-heablogo {
+            width: 210px;
+            height: 27px;
+            background: url(img/index_1386824588_454.png) no-repeat center;
+        }
+
+        .tab-list-foot {
+            width: 1000px;
+            margin: auto;
+        }
+
+        .function {
+            position: absolute;
+            display: none;
+            top: 76px;
+            width: 100%;
+            height: 100%;
+            background: #DBEAF9;
+            z-index: 100;
+        }
+
+        .function td {
+            height: 60px;
+            text-align: center;
+            background: #0C9;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #DFDFDF #ADADAD #ADADAD #DFDFDF;
+        }
+
+        .function-head {
+            height: 18px;
+            line-height: 18px;
+            width: 990px;
+            background: #666;
+            color: #F40;
+            font-weight: bolder;
+            text-align: center;
+        }
+
+        .function-content {
+            width: 746px;
+        }
+
+        .function-content-img {
+            height: 100px;
+            margin: 0px;
+            padding-left: 4px;
+        }
+
+        .function-content-img a {
+            position: relative;
+            display: inline-block;
+            float: left;
+            border: 1px #999 dashed;
+            background: #fff;
+            width: 99px;
+            height: 98px;
+            margin-right: 5px;
+        }
+
+        .function-content-img a p {
+            position: absolute;
+            display: inline-block;
+            left: 85px;
+            width: 14px;
+            height: 14px;
+            background: url(img/PUSS.jpg) no-repeat;
+        }
+
+        .function-content-list {
+            float: left;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            font-size: 19px;
+        }
+
+        .textarea {
+            height: 126px;
+            width: 434px;
+            margin-left: 55px;
+            margin-top: 10px;
+        }
+
+        .function-foot {
+            position: relative;
+            height: 50px;
+            width: 990px;
+            background: #666;
+            text-align: center;
+        }
+
+        .function-btn {
+            background-color: #FFF;
+            border: 1px solid #CDCDCD;
+            height: 24px;
+            width: 70px;
+        }
+
+        .function-file {
+            position: absolute;
+            top: 0;
+            right: 80px;
+            height: 24px;
+            filter: alpha(opacity:0);
+            opacity: 0;
+            width: 260px
+        }
+
+        .function-foot button {
+            text-align: center;
+            line-height: 18px;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs
+/jquery/1.8.3/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#container").click(function () {
+                $(".function").fadeIn(1000);
+            });
+            $("p.3").click(function () {
+                $(this).parent().remove();
+            });
+            $(".1").click(function () {
+                $(".function").add(".function2").fadeOut();
+            });
+        });
+    </script>
+    <title>商品详情</title>
+<body>
+
+<div class="function">
+    <div class="function-head">正在修改菜品</div>
+    <table width="750">
+        <tr>
+            <td width="60">菜名</td>
+            <td><input name="" type="text"/></td>
+            <td width="60">单价</td>
+            <td><input name="" type="text"/></td>
+        </tr>
+        <tr>
+            <td width="60">库存</td>
+            <td><input name="" type="text"/></td>
+            <td width="60">是否上架</td>
+            <td>
+                <input name="up" type="radio" value="" checked/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input name="up" type="radio" value=""/>否
+            </td>
+        </tr>
+        <tr>
+            <td width="60">选择图片</td>
+            <td width="300">
+                <div class="function-box">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <input type="file" name="fileField" id="fileField" size="28"/>
+                        <input type="button" name="submit" class="function-btn" value="上传"/>
+                    </form>
+                </div>
+            </td>
+            <td width="60">口味</td>
+            <td>
+                <input name="SELL" type="radio" value="" checked/>不辣&nbsp;&nbsp;&nbsp;&nbsp;
+                <input name="SELL" type="radio" value=""/>辣
+            </td>
+        </tr>
+    </table>
+    <div class="function-content">
+        <div class="function-content-img">
+            <a><p class="3"></p><img alt="图片1"/></a>
+            <a><p class="3"></p><img alt="图片1"/></a>
+            <a><p class="3"></p><img alt="图片1"/></a>
+            <a><p class="3"></p><img alt="图片1"/></a>
+            <a><p class="3"></p><img alt="图片1"/></a>
+            <a><p class="3"></p><img alt="图片1"/></a>
+            <a><p class="3"></p><img alt="图片1"/> </a>
+        </div>
+        <div style="height:150px; padding-left:70px;">
+            <div class="function-content-list">简介：</div>
+            <textarea name="TEXT" cols="" rows="" class="textarea"></textarea>
+        </div>
+    </div>
+    <div class=" function-foot">
+        <button class="1" style="position:absolute;  top:10px; width:104px; left:300px;">确认添加</button>
+        <button class="1" style="position:absolute;  top:10px; width:104px; left:650px;">取消操作</button>
+    </div>
+</div>
+<div class="logo">
+    <div class=" nav">
+        <div class=" menu">
+            <ul>
+                <li class="current"><span><a href="../index.html">主页</a></span></li>
+                <li><span><a>精品店铺</a></span></li>
+                <li><span><a>咖啡饮品</a></span></li>
+                <li><span><a>甜品蛋糕</a></span></li>
+                <li><span><a>宴会直通车</a></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="header">
+        <div style="border-bottom:2px #4e4e4e solid; height:36px; padding-left:25px;">
+            <ul>
+                <li><a href="deliver goods.html">我的新订单</a></li>
+                <li><a href="adminimenu.html">我的商品</a></li>
+
+            </ul>
+        </div>
+        <div style="margin:auto; width:100px; height:36px; line-height:36px;">
+            <a href="updateUser.html">王大锤</a>
+            <a style="margin-left:30px;" href="../index.html">退出</a>
+        </div>
+    </div>
+</div>
+<div style="border-top:1px #999 solid;"></div>
+<div class="content" style="border-top:none;">
+    <div class="tab">
+        <div style="overflow:auto;zoom:1;">
+            <div class="sp">
+                <div class="page">
+                    <div class="sp-wrap">
+                        <a href="img/food2.jpg"><img src="img/food2.jpg" alt="图片"></a>
+                        <a href="img/food2.jpg"><img src="img/food2.jpg" alt="图片"></a>
+                        <a href="img/food2.jpg"><img src="img/food2.jpg" alt="图片"></a>
+                        <a href="img/food2.jpg"><img src="img/food2.jpg" alt="图片"></a>
+                        <a href="img/food2.jpg"><img src="img/food2.jpg" alt="图片"></a>
+                        <script type="text/javascript" src="js/smoothproducts.js"></script>
+                    </div>
+                </div>
+            </div>
+            <div class="teb-property">
+                <ul>
+                    <li><h1 style=" text-align:center; font-size:14px;">杭州板鸭</h1></li>
+                    <li><a>单价</a><em style="font-size:26px; padding-right:20px;">￥</em><em
+                            style="color:#FF9562; font-weight:bold; font-size:26px; ">25</em></li>
+                    <li><span><a>库存</a><em>500</em>份</span></li>
+                    <li>
+                    	<span>
+                            <a>口味:</a>
+                            <a>辣</a>
+                            <a>不辣</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span><a>是否上架</a><a>是</a></span>
+                    </li>
+                    <li>
+                        <button id="container" style="margin:30px 0 0 150px;">我要修改</button>
+                </ul>
+            </div>
+        </div>
+        <div class="tab-list">
+            <div class="tab-list-head">
+                <div class="tab-list-heablogo" ;></div>
+                <div class="tab-list-foot">
+                    <p>我是介绍</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="fa-footer"></div>
+<div class="footer">
+    <p>项目中监制：吴明华</p>
+    <p>项目制作人：赖叶蕾丨周光利丨李思渊丨胡斌</p>
+    <p>技术支持：web前端-丁伟&nbsp;&nbsp;JAVA:xxx</p>
+    <p>实习项目：百航点餐系统</p>
+</div>
+</body>
+</html>

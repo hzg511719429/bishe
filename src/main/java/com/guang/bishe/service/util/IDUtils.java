@@ -1,0 +1,63 @@
+package com.guang.bishe.service.util;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
+
+/**
+ * 各种id生成策略
+ * <p>Title: IDUtils</p>
+ * <p>Description: </p>
+ * <p>Company: www.itcast.com</p>
+ */
+public class IDUtils {
+
+    /**
+     * 图片名生成
+     */
+    public static String genImageName() {
+        //取当前时间的长整形值包含毫秒
+        long millis = System.currentTimeMillis();
+        //long millis = System.nanoTime();
+        //加上三位随机数
+        Random random = new Random();
+        int end3 = random.nextInt(999);
+        //如果不足三位前面补0
+        String str = millis + String.format("%03d", end3);
+
+        return str;
+    }
+
+    /**
+     * 商品id生成
+     */
+    public static long genItemId() {
+        //取当前时间的长整形值包含毫秒
+        long millis = System.currentTimeMillis();
+        //long millis = System.nanoTime();
+        //加上两位随机数
+        Random random = new Random();
+        int end2 = random.nextInt(99);
+        //如果不足两位前面补0
+        String str = millis + String.format("%02d", end2);
+        long id = new Long(str);
+        return id;
+    }
+
+    /**
+     * 订单号生成
+     */
+    public static String getOrdersn() {
+        Date date = new Date();
+        DateFormat format = new SimpleDateFormat("yyyyMMdd");
+        String time = format.format(date);
+        //加上五位随机数
+        Random random = new Random();
+        int end2 = random.nextInt(99999);
+        //如果不足两位前面补0
+        String str = time + String.format("%02d", end2);
+        return str;
+    }
+
+}
