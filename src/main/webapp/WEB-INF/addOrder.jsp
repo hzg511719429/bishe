@@ -379,7 +379,7 @@
                     <c:if test="${list.addressIsDefault==1}">
                         <li class="boder">
                             <a onclick="xz_address(${status.index})">
-                                <P>&nbsp;&nbsp;&nbsp;&nbsp;<span>${user_s.userRealname}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>${user_s.userPhone}</em>
+                                <P>&nbsp;&nbsp;&nbsp;&nbsp;<span>${user_s.userRealname}</span><em>${user_s.userPhone}</em>
                                 </P>
                                 <div>${list.addressAddress}</div>
                             </a>
@@ -388,7 +388,7 @@
                     <c:if test="${list.addressIsDefault!=1}">
                         <li class="boder2">
                             <a onclick="xz_address(${status.index})">
-                                <P>&nbsp;&nbsp;&nbsp;&nbsp;<span>${user_s.userRealname}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>${user_s.userPhone}</em>
+                                <P>&nbsp;&nbsp;&nbsp;&nbsp;<span>${user_s.userRealname}</span><em>${user_s.userPhone}</em>
                                 </P>
                                 <div>${list.addressAddress}</div>
                             </a>

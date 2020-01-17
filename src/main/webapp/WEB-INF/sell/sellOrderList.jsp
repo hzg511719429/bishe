@@ -348,32 +348,32 @@
                             <button><a style="width:50px;" href="backOrder?orderId=${order.orderId}">退回订单</a></button>
                         </c:if>
                         <c:if test="${order.orderStatus==2}">
-                            <button><a style="width:60px;" href="sreceiveOrder?orderId=${order.orderId}">买家已收货</a>
+                            <button><a style="width:60px;" href="receiveOrder?orderId=${order.orderId}">买家已收货</a>
                             </button>
                             <button><a style="width:60px;"
-                                       href="sbreceiveOrder?orderId=${order.orderId}&action=2">买家未收货</a></button>
+                                       href="notReceiveOrder?orderId=${order.orderId}&action=2">买家未收货</a></button>
                         </c:if>
                         <c:if test="${order.orderStatus==3}">用户未评价</c:if>
                         <c:if test="${order.orderStatus==4}">
-                            <button><a style="width:50px;" href="goodssendOrder?orderId=${order.orderId}">现在发货</a>
+                            <button><a style="width:50px;" href="goodsSendOrder?orderId=${order.orderId}">现在发货</a>
                             </button>
                             <button><a style="width:50px;" href="backOrder?orderId=${order.orderId}">退回订单</a></button>
                         </c:if>
 
                         <c:if test="${order.orderStatus==5}">
-                            <button><a style="width:60px;" href="goodssreceiveOrder?orderId=${order.orderId}">买家已收货</a>
+                            <button><a style="width:60px;" href="goodsReceiveOrder?orderId=${order.orderId}">买家已收货</a>
                             </button>
                             <button><a style="width:60px;"
-                                       href="sbreceiveOrder?orderId=${order.orderId}&action=2">买家未收货</a></button>
+                                       href="notReceiveOrder?orderId=${order.orderId}&action=2">买家未收货</a></button>
                         </c:if>
                         <c:if test="${order.orderStatus==6}">用户未评价</c:if>
                         <c:if test="${order.orderStatus==7}">
                             <button><a style="width:50px;"
-                                       href="sellselectmessageOrder?orderId=${order.orderId}">已评价</a></button>
+                                       href="sellSelectMessageOrder?orderId=${order.orderId}">已评价</a></button>
                         </c:if>
                         <c:if test="${order.orderStatus==8}">已经取消</c:if>
                         <c:if test="${order.orderStatus==9}">
-                            <button><a style="width:50px;" href="backmoney?orderId=${order.orderId}">退款</a></button>
+                            <button><a style="width:50px;" href="backMoney?orderId=${order.orderId}">退款</a></button>
                         </c:if>
                         <c:if test="${order.orderStatus==10}">已经退款</c:if>
                         <c:if test="${order.orderStatus==11}">用户未接收</c:if>

@@ -16,3 +16,5 @@ pagehelper:
   params: count=countSql
   reasonable: false
   support-methods-arguments: true
+server:
+  port: 82

@@ -256,7 +256,7 @@
 
         .tr1 a {
             display: inline-block;
-            width: 230px;
+            width: 80px;
         }
 
         .function {
@@ -280,7 +280,7 @@
         .function td, .function2 td {
             height: 60px;
             text-align: center;
-            background: #0C9;
+            background: #8D9;
             border-width: 2px;
             border-style: solid;
             border-color: #DFDFDF #ADADAD #ADADAD #DFDFDF;
@@ -526,7 +526,7 @@
                         <td>
                             <button><a
                                     href="${pageContext.request.contextPath}/updateSellStatus?id=${list.productId}&status=1">上架</a>
-                            </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button
+                            </button><button
                                 onclick="updateProduct(${list.productId})">修改商品
                         </button>
                         </td>
@@ -536,7 +536,7 @@
                         <td>
                             <button><a
                                     href="${pageContext.request.contextPath}/updateSellStatus?id=${list.productId}&status=0">下架</a>
-                            </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button
+                            </button><button
                                 onclick="updateProduct(${list.productId})">修改商品
                         </button>
                         </td>

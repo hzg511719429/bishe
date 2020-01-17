@@ -75,12 +75,13 @@ public class SellProductsController {
             String path = contentType.contains("image") ? "data/images/" + DateUtils.format(new Date(), "YYYYMMdd") : "data/files/" + DateUtils.format(new Date(), "YYYYMMdd");
             String fileName = System.currentTimeMillis() + ".jpg";
             //新的图片
-            File newFile = new File(basePath + path, fileName);
+            File newFile = new File(basePath + path);
             if (!newFile.exists()) {
                 newFile.mkdirs();
             }
             //把内存图片写入磁盘中
-            file.transferTo(newFile);
+            File imgFile = new File(basePath + path, fileName);
+            file.transferTo(imgFile);
             Map<Integer, String> list = (Map<Integer, String>) request.getSession().getAttribute("uploadImgCount");
             if (list == null) {
                 list = new HashMap<>();

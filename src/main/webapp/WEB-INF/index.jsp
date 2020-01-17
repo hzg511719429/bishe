@@ -317,6 +317,7 @@
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="static/css/my.css">
     <link rel="stylesheet" href="static/css/zalki_hover_img.css" type="text/css" media="screen">
     <script type="text/javascript" src="static/js/jquery.js"></script>
     <script src="static/jQuery/jquery.easing.1.3.js" type="text/javascript"></script>

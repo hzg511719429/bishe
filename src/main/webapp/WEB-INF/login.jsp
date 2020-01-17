@@ -27,7 +27,6 @@
         }
 
         a:hover {
-            text-decoration: underline;
             color: #f40;
         }
 
@@ -61,7 +60,7 @@
             left: 280px;
             width: 535px;
             height: 31px;
-            background: url(../static/img/navbg.gif) repeat-x;
+            background: url(static/img/navbg.gif) repeat-x;
             padding-left: 7px;
         }
 
@@ -70,7 +69,7 @@
             width: 107px;
             height: 27px;
             margin-top: 4px;
-            background: url(../static/img/navline.gif) no-repeat right 3px;
+            background: url(static/img/navline.gif) no-repeat right 3px;
         }
 
         .menu li span {
@@ -89,11 +88,11 @@
         }
 
         .menu li span a:hover, .menu .back a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .menu li.current span {
-            background: url(../static/img/tagbg.gif) no-repeat;
+            background: url(static/img/tagbg.gif) no-repeat;
         }
 
         .menu li.current a {
@@ -164,14 +163,14 @@
             border: none;
             height: 35px;
             width: 98px;
-            background: url(../static/img/login.png) no-repeat 0 -56px;
+            background: url(static/img/login.png) no-repeat 0 -56px;
             color: #FFF;
             font-size: 14px;
             font-weight: 700;
         }
 
         #loginbar-form .btn:hover {
-            background: url(../static/img/login.png) no-repeat 0 -91px;
+            background: url(static/img/login.png) no-repeat 0 -91px;
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>

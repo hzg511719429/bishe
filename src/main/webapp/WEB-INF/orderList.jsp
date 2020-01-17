@@ -382,7 +382,7 @@
                             <button><a style="width:50px;" href="deleteOrder?id=${order.orderId}">取消</a></button>
                         </c:if>
                             <c:if test="${order.orderStatus==1}">
-                                <button><a style="width:50px;" href="backmoneyOrder?id=${order.orderId}">申请退款</a>
+                                <button><a style="width:50px;" href="backMoneyOrder?id=${order.orderId}">申请退款</a>
                                 </button>
                             </c:if>
                             <c:if test="${order.orderStatus==2}">
@@ -404,7 +404,7 @@
                                 <button><a style="width:50px;" href="messageOrder?id=${order.orderId}">评价</a></button>
                             </c:if>
                             <c:if test="${order.orderStatus==7}">
-                                <button><a style="width:50px;" href="selectmessageOrder?id=${order.orderId}">已评价</a>
+                                <button><a style="width:50px;" href="selectMessageOrder?id=${order.orderId}">已评价</a>
                                 </button>
                             </c:if>
                             <c:if test="${order.orderStatus==8}">已取消</c:if>

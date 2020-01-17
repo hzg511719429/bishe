@@ -271,15 +271,16 @@
         .function2 {
             position: absolute;
             top: 76px;
-            width: 990px;
+            width: 100%;
             height: 552px;
             background: #DBEAF9;
+            margin: 0 auto;
         }
 
         .function td, .function2 td {
             height: 60px;
             text-align: center;
-            background: #0C9;
+            background: #8D9;
             border-width: 2px;
             border-style: solid;
             border-color: #DFDFDF #ADADAD #ADADAD #DFDFDF;
@@ -288,7 +289,7 @@
         .function-head {
             height: 18px;
             line-height: 18px;
-            width: 990px;
+            width: 100%;
             background: #666;
             color: #F40;
             font-weight: bolder;
@@ -343,7 +344,7 @@
         .function-foot {
             position: relative;
             height: 50px;
-            width: 990px;
+            width: 100%;
             background: #666;
             text-align: center;
         }
@@ -491,12 +492,10 @@
         <div class=" function-foot">
             <input value="确认修改" style="position:absolute;  top:10px; width:104px; left:300px;" type="submit"/>
             <input type="button" value="取消操作" onclick="returnProductList()"
-                   style="position:absolute;  top:10px; width:104px; left:650px;"/>
+                   style="position:absolute;  top:10px; width:104px; left:950px;"/>
         </div>
     </form>
 </div>
-
-<%@ include file="../comment/foot.jsp" %>
 
 </body>
 
