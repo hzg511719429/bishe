@@ -49,7 +49,7 @@ public class CartServiceImpl implements CartService {
         if (status == 0) {
             return ShopResult.build(200, "加入成功");
         } else {
-            return ShopResult.build(200, "加入成功，跳转订单页面", request.getContextPath() + "/addorder");
+            return ShopResult.build(200, "加入成功，跳转订单页面", request.getContextPath() + "/cart");
         }
     }
 

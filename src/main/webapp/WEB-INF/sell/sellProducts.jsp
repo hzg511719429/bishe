@@ -544,13 +544,7 @@
                 </tr>
             </c:forEach>
         </table>
-        <table>
-            <tr class="tr2" style="background:#dbeaf9;">
-                <td style="width:990px;">
-                    <button id="container" style="height:60px; width:200px; border:2px #666 dashed;">添加产品</button>
-                </td>
-            </tr>
-        </table>
+        <button id="container" style="height:60px; width:200px; border:2px #666 dashed;display:block;margin:0 auto">添加产品</button>
     </div>
 
     <div style="width:990px;">
@@ -587,10 +581,6 @@
         </div>
     </div>
 </div>
-
-
-<%@include file="../comment/foot.jsp" %>
-
 </body>
 <script type="text/javascript">
 

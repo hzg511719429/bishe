@@ -17,15 +17,16 @@ public interface UserService {
 
     void updateOrder(long orderId, String status);
     /**
+     *订单
+     * 更新
+     */
+
+    void updateOrder(Orders orders);
+    /**
      *
      * 删除订单
      */
     void deleteOrderByOrderId(long id);
-    /**
-     *
-     * 订单 详情
-     */
-    OrderAndUser selectitemByOrderId(long id);
     /**
      *
      * 通过订单id查找订单

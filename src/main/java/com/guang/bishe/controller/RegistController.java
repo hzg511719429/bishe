@@ -130,7 +130,9 @@ public class RegistController {
                 addressService.insertAddress(address);
 
             }
-            return "redirect:index";
+            model.addAttribute("view","login");
+            model.addAttribute("message","注册成功！");
+            return  "success";
         }
     }
 }

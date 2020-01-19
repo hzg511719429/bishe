@@ -11,15 +11,13 @@ import com.guang.bishe.service.AddressService;
 import com.guang.bishe.service.CartService;
 import com.guang.bishe.service.OrderService;
 import com.guang.bishe.service.dto.CartView;
+import com.guang.bishe.service.dto.OrderAndUser;
 import com.guang.bishe.service.dto.PageResult;
 import com.guang.bishe.service.dto.ShopResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -200,5 +198,22 @@ public class OrderController {
         orderService.updateOrderStatus(all, request, longs);
         //首先先获取到相关数据
         return "payok";
+    }
+
+    @GetMapping(value = "/deleteOrder")
+    public String deleteOder(Long id) {
+        orderService.deleteOrderById(id);
+        return "redirect:menu";
+    }
+
+    @GetMapping(value = "/menuDetails")
+    public String menuDetails(Long id, HttpServletRequest request, Model model) {
+        User user = (User) request.getSession().getAttribute("user");
+        if (null == user) {
+            return "login";
+        }
+        OrderAndUser orderAndUser = orderService.selectItemByOrderId(id);
+        model.addAttribute("orderAndUser", orderAndUser);
+        return "orderDetails";
     }
 }

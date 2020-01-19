@@ -355,7 +355,7 @@
                                     <c:if test="${order.orderStatus==0}"> class="col"</c:if>/>
                             <input type="text" id="orderSize" value="${orderSize}" style="display: none"/>
                         </td>
-                        <td><a href="menudetails?id=${order.orderId}">${order.orderNo}</a></td>
+                        <td><a href="menuDetails?id=${order.orderId}">${order.orderNo}</a></td>
                         <td>￥<em>${order.orderTotalPrice}</em></td>
                             <%--订单状态 分为0：已确定 未付款  1：已确定已付款未发货--%>
                             <%--2：已确定已付款已发货待收货 3：已确定 已付款 已发货 已收货--%>
@@ -382,11 +382,12 @@
                             <button><a style="width:50px;" href="deleteOrder?id=${order.orderId}">取消</a></button>
                         </c:if>
                             <c:if test="${order.orderStatus==1}">
-                                <button><a style="width:50px;" href="backMoneyOrder?id=${order.orderId}">申请退款</a>
+                                <button><a style="width:50px;" href="backMoneyOrder?orderId=${order.orderId}">申请退款</a>
                                 </button>
                             </c:if>
                             <c:if test="${order.orderStatus==2}">
-                                <button><a style="width:50px;" href="receiveOrder?id=${order.orderId}&action=2">确定收货</a>
+                                <button><a style="width:50px;"
+                                           href="userReceiveOrder?id=${order.orderId}&action=2">确定收货</a>
                                 </button>
                             </c:if>
                             <c:if test="${order.orderStatus==3}">
@@ -397,7 +398,8 @@
                             </c:if>
 
                             <c:if test="${order.orderStatus==5}">
-                                <button><a style="width:50px;" href="receiveOrder?id=${order.orderId}&action=2">确定收货</a>
+                                <button><a style="width:50px;"
+                                           href="userReceiveOrder?id=${order.orderId}&action=2">确定收货</a>
                                 </button>
                             </c:if>
                             <c:if test="${order.orderStatus==6}">
@@ -472,7 +474,6 @@
         </div>
     </div>
 </div>
-<%@ include file="comment/foot.jsp" %>
 </body>
 <script>
 

@@ -1,6 +1,7 @@
 package com.guang.bishe.service;
 
 import com.guang.bishe.domain.Orders;
+import com.guang.bishe.service.dto.OrderAndUser;
 import com.guang.bishe.service.dto.PageResult;
 
 import javax.servlet.http.HttpServletRequest;
@@ -46,4 +47,17 @@ public interface OrderService {
      * @param longs
      */
     void updateOrderStatus(int all, HttpServletRequest request, Long[] longs);
+
+    /**
+     * 删除订单
+     * @param id
+     */
+    void deleteOrderById(Long id);
+
+    /**
+     * 订单详情
+     * @param id
+     * @return
+     */
+    OrderAndUser selectItemByOrderId(Long id);
 }

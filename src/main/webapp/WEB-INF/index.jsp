@@ -317,13 +317,14 @@
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="static/css/my.css">
+<%--    <link rel="stylesheet" href="static/css/bootstrap.css" type="text/css" media="screen">--%>
+<%--    <script src="static/js/bootstrap.js" type="text/javascript"></script>--%>
+<%--    <script type="text/javascript" src="static/js/jquery-1.9.1.min.js"></script>--%>
     <link rel="stylesheet" href="static/css/zalki_hover_img.css" type="text/css" media="screen">
     <script type="text/javascript" src="static/js/jquery.js"></script>
     <script src="static/jQuery/jquery.easing.1.3.js" type="text/javascript"></script>
     <script src="static/js/jquery.zalki_hover_img.min-0.2.js" type="text/javascript"></script>
     <script type="text/javascript">
-
         $(window).load(function () {
             $('.main_box').ZalkiHoverImg(
             );
@@ -419,7 +420,7 @@
                         </a>
                         <i>|</i>
                         <a target="_blank" class="col_saled" data-spm="d11">已售<em>${list.productHassSelled}</em>件</a>
-                        <i>|</i> <span class="col_shop"><a href="goods?id=${list.productId}">了解详情</a></span>
+                        <i>|</i> <span class="col_shop"><a href="productDesc?id=${list.productId}">了解详情</a></span>
                     </div>
                 </div>
             </c:forEach>
@@ -470,8 +471,6 @@
         </div>
     </div>
 </div>
-
-<%@include file="comment/foot.jsp" %>
 
 </body>
 <script>

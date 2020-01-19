@@ -131,22 +131,6 @@ public class SellOrdersController {
         userService.updateOrder(orderId, "6");
         return "redirect:sellOrderList";
     }
-
-    /**
-     * 查看评价订单
-     */
-    @GetMapping(value = "/sellSelectMessageOrder")
-    public String sellSelectMessageOrder(long orderId, Model model, HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (null == user) {
-            return "login";
-        }
-
-        Orders orders = userService.selectOrderByOrderId(orderId);
-        model.addAttribute("orders", orders);
-        model.addAttribute("action", 2);
-        return "sell/sellMessage";
-    }
     /**
      * 退款
      */
@@ -157,7 +141,7 @@ public class SellOrdersController {
             return "login";
         }
         userService.updateOrder(orderId, "9");
-        return "redirect:sellOrderList";
+        return "redirect:menu";
     }
 
     /**

@@ -116,6 +116,8 @@ public class LoginController {
             user.setUserPassword(password);
             loginService.updateUserPassword(user);
         }
-        return "login";
+        model.addAttribute("view","login");
+        model.addAttribute("message","修改密码成功！");
+        return  "success";
     }
 }

@@ -484,9 +484,7 @@
             </div>
             <div style="height:150px; padding-left:70px;">
                 <div class="function-content-list">简介：</div>
-                <textarea name="productDescription" cols="" rows="" class="textarea">
-                    ${product.productDescription}
-                </textarea>
+                <textarea name="productDescription" cols="" rows="" class="textarea">${product.productDescription}</textarea>
             </div>
         </div>
         <div class=" function-foot">

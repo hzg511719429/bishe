@@ -307,10 +307,10 @@
                         <a>丨</a>
                         <c:if test="${address.addressIsDefault!=1}">
                             <a class="regsiteradd" style="color:#ff2323;margin:0px;"
-                               onclick="deleteAddresss(this,${address.addressId})">删除</a>
+                               onclick="deleteAddress(this,${address.addressId})">删除</a>
                             <a>丨</a>
                             <a class="regsiteradd" style="color:#0d1dff;margin:0px;"
-                               href="updatedefaultAddresss?id=${address.addressId}">设默认</a>
+                               href="updateDefaultAddress?id=${address.addressId}">设默认</a>
 
                         </c:if>
                         <c:if test="${address.addressIsDefault==1}">
@@ -336,10 +336,10 @@
 
 </body>
 <script>
-    function deleteAddresss(obj, id) {
+    function deleteAddress(obj, id) {
         $.ajax({
             type: "get",
-            url: "${pageContext.request.contextPath}/deleteAdress",
+            url: "${pageContext.request.contextPath}/deleteAddress",
             data: {id: id},
             async: false,
             dataType: "text",

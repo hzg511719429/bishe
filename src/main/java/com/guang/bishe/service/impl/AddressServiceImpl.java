@@ -91,12 +91,12 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public void deleteAdress(Long id) {
+    public void deleteAddress(Long id) {
         addressMapper.deleteByPrimaryKey(id);
     }
 
     @Override
-    public void updatedefaultAddresss(Long id) {
+    public void updateDefaultAddress(Long id) {
         //先查询出默认的地址改为不默认的
         AddressExample example = new AddressExample();
         AddressExample.Criteria criteria = example.createCriteria();

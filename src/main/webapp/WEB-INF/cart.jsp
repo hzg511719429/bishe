@@ -369,8 +369,6 @@
     </form>
 </div>
 
-<%@ include file="comment/foot.jsp" %>
-
 </body>
 
 <script>

@@ -366,8 +366,6 @@
     </div>
 </div>
 
-<%@include file="comment/foot.jsp" %>
-
 </body>
 
 <script type="text/javascript">
@@ -383,8 +381,11 @@
                 type: "POST",
                 data: {id:${product.productId}, price:${product.productPrice}, number: number, status: status},
                 success: function (data) {
-                    if (data.stutas == 200) {
+                    if (data.status == 200) {
                         alert(data.msg);
+                        if (data.data != null) {
+                            window.location.href = data.data;
+                        }
                     } else {
                         alert(data.msg);
                     }

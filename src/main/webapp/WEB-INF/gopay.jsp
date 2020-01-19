@@ -373,7 +373,5 @@
     </div>
 </div>
 
-<%@ include file="comment/foot.jsp" %>
-
 </body>
 </html>

@@ -61,12 +61,12 @@ public interface AddressService {
      *
      * @param id
      */
-    void deleteAdress(Long id);
+    void deleteAddress(Long id);
 
     /**
      * 更改此地址为默认地址
      *
      * @param id
      */
-    void updatedefaultAddresss(Long id);
+    void updateDefaultAddress(Long id);
 }

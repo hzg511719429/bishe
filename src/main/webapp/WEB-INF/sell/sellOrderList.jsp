@@ -369,7 +369,7 @@
                         <c:if test="${order.orderStatus==6}">用户未评价</c:if>
                         <c:if test="${order.orderStatus==7}">
                             <button><a style="width:50px;"
-                                       href="sellSelectMessageOrder?orderId=${order.orderId}">已评价</a></button>
+                                       href="selectMessageOrder?orderId=${order.orderId}">已评价</a></button>
                         </c:if>
                         <c:if test="${order.orderStatus==8}">已经取消</c:if>
                         <c:if test="${order.orderStatus==9}">
@@ -488,8 +488,6 @@
         </div>
     </div>
 </div>
-
-<%@ include file="../comment/foot.jsp" %>
 
 </body>
 <script>

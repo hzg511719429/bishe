@@ -446,8 +446,6 @@
     </div>
 </div>
 
-<%@ include file="comment/foot.jsp" %>
-
 </body>
 <script type="text/javascript">
     $(function () {

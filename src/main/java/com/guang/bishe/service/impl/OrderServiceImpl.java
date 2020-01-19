@@ -5,8 +5,11 @@ import com.github.pagehelper.PageInfo;
 import com.guang.bishe.domain.*;
 import com.guang.bishe.mapper.*;
 import com.guang.bishe.service.OrderService;
+import com.guang.bishe.service.dto.ItemAndProduct;
+import com.guang.bishe.service.dto.OrderAndUser;
 import com.guang.bishe.service.dto.PageResult;
 import com.guang.bishe.service.util.IDUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +31,8 @@ public class OrderServiceImpl implements OrderService {
     private ProductMapper productMapper;
     @Autowired
     private ItemMapper itemMapper;
+    @Autowired
+    private UserMapper userMapper;
 
     @Override
     public List<Orders> insertConfirmOrder(HttpServletRequest request, String sc_date, int paytype, String message, double sumprice) {
@@ -187,5 +192,40 @@ public class OrderServiceImpl implements OrderService {
                 ordersMapper.updateByPrimaryKey(orders1);
             }
         }
+    }
+
+    @Override
+    public void deleteOrderById(Long id) {
+        ItemExample example = new ItemExample();
+        ItemExample.Criteria criteria = example.createCriteria();
+        criteria.andItemOrderIdEqualTo(id);
+        itemMapper.deleteByExample(example);
+        ordersMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public OrderAndUser selectItemByOrderId(Long id) {
+        OrderAndUser orderAndUser = new OrderAndUser();
+        Orders orders = ordersMapper.selectByPrimaryKey(id);
+        BeanUtils.copyProperties(orders, orderAndUser);
+        User user = userMapper.selectByPrimaryKey(orders.getOrderBuyerId());
+        orderAndUser.setUserName(user.getUserNickname());
+        orderAndUser.setUserPhone(user.getUserPhone());
+
+        List<ItemAndProduct> itemAndProductList = new ArrayList<>();
+        ItemExample itemExample = new ItemExample();
+        ItemExample.Criteria criteria = itemExample.createCriteria();
+        criteria.andItemOrderIdEqualTo(orders.getOrderId());
+        List<Item> items = itemMapper.selectByExample(itemExample);
+        for (Item i : items){
+            ItemAndProduct itemAndProduct = new ItemAndProduct();
+            BeanUtils.copyProperties(i, itemAndProduct);
+            Product product = productMapper.selectByPrimaryKey(i.getItemProductId());
+            itemAndProduct.setProductName(product.getProductName());
+            itemAndProduct.setProductPrice(product.getProductPrice());
+            itemAndProductList.add(itemAndProduct);
+        }
+        orderAndUser.setList(itemAndProductList);
+        return orderAndUser;
     }
 }
