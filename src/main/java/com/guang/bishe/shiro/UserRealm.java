@@ -2,6 +2,7 @@ package com.guang.bishe.shiro;
 
 import com.guang.bishe.domain.User;
 import com.guang.bishe.service.LoginService;
+import com.guang.bishe.service.util.MD5Util;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

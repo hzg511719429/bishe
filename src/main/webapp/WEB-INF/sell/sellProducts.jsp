@@ -602,7 +602,7 @@
             contentType: false,
             processData: false,
             success: function (data) {
-                if (data.status == 200) {
+                if (data.status === 200) {
                     imgCount++;
                     //成功之后照片显示 并且把路径回显到隐藏的input中
                     $("#add_goods_img_id").attr("value", data.data);

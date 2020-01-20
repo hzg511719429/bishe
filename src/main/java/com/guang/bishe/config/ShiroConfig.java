@@ -51,7 +51,7 @@ public class ShiroConfig {
         map.put("/static/**", "anon");
         map.put("/data/**", "anon");
         map.put("/", "anon");
-        map.put("/login.jsp", "anon");
+        map.put("/login", "anon");
         map.put("/regist", "anon");
         map.put("/mailEditPassword", "anon");
         map.put("/index", "anon");

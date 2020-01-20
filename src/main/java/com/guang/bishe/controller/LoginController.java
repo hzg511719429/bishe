@@ -2,6 +2,7 @@ package com.guang.bishe.controller;
 
 import com.guang.bishe.domain.User;
 import com.guang.bishe.service.LoginService;
+import com.guang.bishe.service.util.MD5Util;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -37,9 +38,10 @@ public class LoginController {
     @PostMapping(value = "/login")
     public String loginForm(User user, Model model, HttpServletRequest request) {
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(user.getUserEmail(), user.getUserPassword());
+        UsernamePasswordToken token = new UsernamePasswordToken(user.getUserEmail(), MD5Util.MD5(user.getUserPassword()));
         try {
             subject.login(token);
+            user.setUserPassword(MD5Util.MD5(user.getUserPassword()));
             List<User> userList = loginService.getUser(user);
             if (userList.size() <= 0) {
                 model.addAttribute("message", "用户名或密码不正确！");
@@ -113,7 +115,7 @@ public class LoginController {
         } else {
             User user = new User();
             user.setUserId(userId);
-            user.setUserPassword(password);
+            user.setUserPassword(MD5Util.MD5(password));
             loginService.updateUserPassword(user);
         }
         model.addAttribute("view","login");

@@ -171,6 +171,11 @@
             z-index: 1;
         }
 
+        #regist dl dd p {
+             color: red;
+             text-indent: 100px;
+         }
+
         .tipinfo {
             position: absolute;
             left: 100px;
@@ -243,7 +248,7 @@
                     <input class="ipt" type="text" value="${user_regist.userEmail}" name="userEmail" id="email"
                            onfocus="this.style.border='2px solid #f60';"
                            onblur="this.style.border='2px solid #F08300';"/>
-                    <span style="color: red">*${msg_email}</span>
+                    <span>*</span><p>${msg_email}</p>
                     <div class="tipinfo"></div>
                 </dd>
 
@@ -254,7 +259,7 @@
                     <input class="ipt" type="password" name="userPassword" id="passWord"
                            onfocus="this.style.border='2px solid #f60';"
                            onblur="this.style.border='2px solid #F08300';"/>
-                    <span style="color: red">*${msg_password}</span>
+                    <span>*</span><p>${msg_password}</p>
                     <div class="tipinfo"></div>
                 </dd>
             </dl>
@@ -264,7 +269,7 @@
                     <input class="ipt" type="password" name="passwordAgain" id="passWordAgain"
                            onfocus="this.style.border='2px solid #f60';"
                            onblur="this.style.border='2px solid #F08300';"/>
-                    <span style="color: red">*${msg_password2}</span>
+                    <span>*</span><p>${msg_password2}</p>
                     <div class="tipinfo"></div>
                 </dd>
             </dl>
@@ -274,7 +279,7 @@
                     <input class="ipt" type="text" value="${user_regist.userNickname}" name="userNickname"
                            id="userNickname" onfocus="this.style.border='2px solid #f60';"
                            onblur="this.style.border='2px solid #F08300';"/>
-                    <span style="color: red">*${msg_nickname}</span>
+                    <span>*</span><p>${msg_nickname}</p>
                 </dd>
             </dl>
 
@@ -307,7 +312,7 @@
                     <input class="ipt" type="text" value="${user_regist.userRealname}" name="userRealname" id="userName"
                            onfocus="this.style.border='2px solid #f60';"
                            onblur="this.style.border='2px solid #F08300';"/>
-                    <span style="color: red">*${msg_realname}</span>
+                    <span>*</span><p>${msg_realname}</p>
                     <div class="tipinfo"></div>
                 </dd>
             </dl>
@@ -317,7 +322,7 @@
                     <input class="ipt" type="text" value="${user_regist.userPhone}" name="userPhone" id="sms"
                            onfocus="this.style.border='2px solid #f60';"
                            onblur="this.style.border='2px solid #F08300';"/>
-                    <span style="color: red">*${msg_phone}</span>
+                    <span>*</span><p>${msg_phone}</p>
                     <div class="tipinfo"></div>
                 </dd>
             </dl>
@@ -327,7 +332,7 @@
                     <input class="ipt" type="text" value="${addressr}" name="addressAddress" id="homename"
                            onfocus="this.style.border='2px solid #f60';"
                            onblur="this.style.border='2px solid #F08300';"/>
-                    <span style="color: red">*${msg_address}</span>
+                    <span>*</span><p>${msg_address}</p>
                 </dd>
             </dl>
             <dl style=" padding:50px 0px 0px 67px;">

@@ -38,7 +38,7 @@
                 </c:if>
             </ul>
         </div>
-        <div style="margin:auto; width:100px; height:36px; line-height:36px;">
+        <div style="height:36px; line-height:36px;">
             <c:if test="${sessionScope.user != null}">
                 <a href="updateUser">${sessionScope.user.userNickname}</a>
                 <a style="margin-left:10px;" href="logout">退出</a>

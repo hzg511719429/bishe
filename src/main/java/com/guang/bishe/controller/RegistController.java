@@ -5,6 +5,7 @@ import com.guang.bishe.domain.User;
 import com.guang.bishe.service.AddressService;
 import com.guang.bishe.service.LoginService;
 import com.guang.bishe.service.RegistService;
+import com.guang.bishe.service.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -101,7 +102,7 @@ public class RegistController {
                 return "regist";
             }
         }
-
+        user.setUserPassword(MD5Util.MD5(user.getUserPassword()));
         //检查用户是否已经存在
         User user1 = registService.getUserByEmail(user.getUserEmail());
         if (user1 != null) {
