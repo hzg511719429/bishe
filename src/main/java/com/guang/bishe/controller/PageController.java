@@ -40,7 +40,7 @@ public class PageController {
                         @RequestParam(defaultValue = "") String word, Model model) {
         //下面是查询商品列表
         //返回PageResult，其中object属性是 list集合
-        getIntex(page, row, status, min, max, word, model);
+        getIndex(page, row, status, min, max, word, model);
         return "/index";
     }
 
@@ -58,12 +58,12 @@ public class PageController {
                           @RequestParam(defaultValue = "") String word, Model model) {
         //下面是查询商品列表
         //返回PageResult，其中object属性是 list集合
-        getIntex(page, row, status, min, max, word, model);
+        getIndex(page, row, status, min, max, word, model);
         return "/index";
     }
 
     //转到主页的代码
-    private void getIntex(Integer page, Integer row, Integer status, double min,
+    private void getIndex(Integer page, Integer row, Integer status, double min,
                           double max, String word, Model model) {
         PageResult pageResult = pageService.getProductList(page, row, status, min, max, word);
         model.addAttribute("pageResult", pageResult);

@@ -49,6 +49,7 @@ public class ShiroConfig {
         map.put("/logout", "logout");
         //静态资源不拦截
         map.put("/static/**", "anon");
+        map.put("/data/**", "anon");
         map.put("/", "anon");
         map.put("/login.jsp", "anon");
         map.put("/regist", "anon");

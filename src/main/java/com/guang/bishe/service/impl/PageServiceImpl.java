@@ -58,12 +58,12 @@ public class PageServiceImpl implements PageService {
             ProductimgExample example2 = new ProductimgExample();
             ProductimgExample.Criteria criteria2 = example2.createCriteria();
             criteria2.andProductIdEqualTo(product.getProductId());
-            List<Productimg> productimgList = productimgMapper.selectByExample(example2);
-            if (productimgList.size() == 0) {
+            List<Productimg> productImgList = productimgMapper.selectByExample(example2);
+            if (productImgList.size() == 0) {
                 product.setProductPicture("static/img/defult.jpg");
             } else {
                 //因为可能上传多张图片，这里取一张显示
-                product.setProductPicture(productimgList.get(0).getImgurl());
+                product.setProductPicture(productImgList.get(0).getImgurl());
             }
         }
 
