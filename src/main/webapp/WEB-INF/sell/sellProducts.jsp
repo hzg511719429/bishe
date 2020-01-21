@@ -28,7 +28,7 @@
         }
 
         a:hover {
-            text-decoration: underline;
+            text-decoration: none;
             color: #f40;
         }
 
@@ -90,7 +90,7 @@
         }
 
         .menu li span a:hover, .menu .back a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .menu li.current span {
@@ -440,7 +440,6 @@
 <body>
 <%@ include file="../comment/head.jsp" %>
 
-<div style="border-top:1px #999 solid;"></div>
 <div class="content" style="border-top:none;">
     <div class="function">
         <div class="function-head">正在添加菜品</div>
@@ -553,32 +552,32 @@
     <div style="width:990px;">
         <div class="foot-tab">
             <ul>
-                <span><a class="foot-tab-hover1" href="adminimenu?page=1&row=10" style="width:57px;">首页</a></span>
+                <span><a class="foot-tab-hover1" href="adminMenu?page=1&row=10" style="width:57px;">首页</a></span>
                 <c:if test="${pageResult.pages == 1}">
                     <li><a class="foot-tab-active" style="color: #F60;" href="#">1</a></li>
                 </c:if>
                 <c:if test="${pageResult.pages > 1}">
                     <c:if test="${pageResult.curr == 1}">
                         <li><a class="foot-tab-active" style="color: #F60;" href="#">1</a></li>
-                        <li><a class="foot-tab-hover" href="adminimenu?page=${pageResult.curr+1}&row=10">2</a></li>
+                        <li><a class="foot-tab-hover" href="adminMenu?page=${pageResult.curr+1}&row=10">2</a></li>
                     </c:if>
                     <c:if test="${pageResult.curr+1 < pageResult.pages && pageResult.curr >1 }">
                         <li><a class="foot-tab-hover"
-                               href="adminimenu?page=${pageResult.curr-1}&row=10">${pageResult.curr-1}</a></li>
+                               href="adminMenu?page=${pageResult.curr-1}&row=10">${pageResult.curr-1}</a></li>
                         <li><a class="foot-tab-active" style="color: #F60;" href="#">${pageResult.curr}</a></li>
                         <li><a class="foot-tab-hover"
-                               href="adminimenu?page=${pageResult.curr+1}&row=10">${pageResult.curr+1}</a></li>
+                               href="adminMenu?page=${pageResult.curr+1}&row=10">${pageResult.curr+1}</a></li>
                     </c:if>
                     <c:if test="${pageResult.curr == pageResult.pages}">
                         <li><a class="foot-tab-hover"
-                               href="adminimenu?page=${pageResult.curr-1}&row=10">${pageResult.curr-1}</a></li>
+                               href="adminMenu?page=${pageResult.curr-1}&row=10">${pageResult.curr-1}</a></li>
                         <li><a class="foot-tab-active" style="color: #F60;" href="#">${pageResult.pages}</a></li>
                     </c:if>
                 </c:if>
-                <span><a class="foot-tab-hover2" href="adminimenu?page=${pageResult.pages}&row=10" style="width:57px;">尾页</a></span>
+                <span><a class="foot-tab-hover2" href="adminMenu?page=${pageResult.pages}&row=10" style="width:57px;">尾页</a></span>
             </ul>
-            <form action="index" method="post" onsubmit="return checkPage(this)">
-                <input style=" margin:13px;width:23px;" name="page" type="text" value="1"/>
+            <form action="adminMenu" method="post" onsubmit="return checkPage(this)">
+                <input style=" margin:13px;width:23px;" name="page" type="text" value="1" onkeyup="this.value=this.value.replace(/\D/g,'')"/>
                 <input style="padding:0;" name="提交" type="submit" value="跳转"/>
             </form>
         </div>
@@ -696,7 +695,7 @@
                 success: function (data) {
                     if (data.status == 200) {
                         alert(data.msg);
-                        window.location.href = "adminimenu";
+                        window.location.href = "adminMenu";
                     } else {
                         alert(data.msg);
                     }

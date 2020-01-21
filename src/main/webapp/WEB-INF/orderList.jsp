@@ -29,7 +29,7 @@
         }
 
         a:hover {
-            text-decoration: underline;
+            text-decoration: none;
             color: #f40;;
         }
 
@@ -91,7 +91,7 @@
         }
 
         .menu li span a:hover, .menu .back a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .menu li.current span {
@@ -328,7 +328,6 @@
 
 <%@ include file="comment/head.jsp" %>
 
-<div style="border-top:1px #999 solid;"></div>
 <div class="content" style=" border-top:none;">
     <div class="menu-content">
         <table>
@@ -362,6 +361,7 @@
                             <%--4：已确定 货到付款 未发货:5：已确定 货到付款 已发货未收货--%>
                             <%--6：已确定 货到付款 已发货 已收货--%>
                             <%--7：已经评价 ；8取消订单;9退款申请（）10已退款;11用户不收货--%>
+                            <%--12：超时10分钟未付款，订单取消--%>
                         <td><c:if test="${order.orderStatus==0}"> 待付款</c:if>
                             <c:if test="${order.orderStatus==1}">待发货</c:if>
                             <c:if test="${order.orderStatus==2}">待收货</c:if>
@@ -374,6 +374,7 @@
                             <c:if test="${order.orderStatus==9}">申请退款</c:if>
                             <c:if test="${order.orderStatus==10}">已退款</c:if>
                             <c:if test="${order.orderStatus==11}">用户拒收</c:if>
+                            <c:if test="${order.orderStatus==12}">订单取消</c:if>
 
                         </td>
                         <td><c:if test="${order.orderStatus==0}">
@@ -406,14 +407,14 @@
                                 <button><a style="width:50px;" href="messageOrder?id=${order.orderId}">评价</a></button>
                             </c:if>
                             <c:if test="${order.orderStatus==7}">
-                                <button><a style="width:50px;" href="selectMessageOrder?id=${order.orderId}">已评价</a>
+                                <button><a style="width:50px;" href="selectMessageOrder?orderId=${order.orderId}">已评价</a>
                                 </button>
                             </c:if>
                             <c:if test="${order.orderStatus==8}">已取消</c:if>
                             <c:if test="${order.orderStatus==9}">等待退款</c:if>
                             <c:if test="${order.orderStatus==10}">已退款</c:if>
                             <c:if test="${order.orderStatus==11}">用户拒收</c:if>
-
+                            <c:if test="${order.orderStatus==12}">超时10分钟未付款，订单取消</c:if>
                         </td>
                     </tr>
                 </c:forEach>
@@ -428,18 +429,11 @@
                 <span id="sli"><a class="foot-tab-hover1"
                                   <c:if test="${pageResult.curr!=1}">href="menu"</c:if>
                                   style="width:57px;">首页</a></span>
-
-                <%--<li><a  class="foot-tab-active" style="color: #F60;" href="#">1</a></li>--%>
-                <%--<li><a  class="foot-tab-hover" href="#">2</a></li>--%>
-                <%--<li><a  class="foot-tab-hover" href="#">3</a></li>--%>
-                <%--<li><a  class="foot-tab-hover" href="#">4</a></li>--%>
-                <%--<li><a  class="foot-tab-hover" href="#">5</a></li>--%>
-
                 <span><a class="foot-tab-hover2"
                          <c:if test="${pageResult.curr!=pageResult.pages}">href="menu?page=${pageResult.pages}"</c:if>
                          style="width:57px;">尾页</a></span>
 
-                <li><input style="padding:0;width: 30px" id="p2" value=""/></li>
+                <li><input style="padding:0;width: 30px" id="p2" value="" onkeyup="this.value=this.value.replace(/\D/g,'')"/></li>
                 <li><input style="padding:0;" type="button" name="提交" onclick="tz()" value="跳转"/> 共${pageResult.pages}页
                 </li>
                 <script>

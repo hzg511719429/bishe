@@ -39,7 +39,7 @@ public class SellProductsController {
      * @param row
      * @return
      */
-    @RequestMapping("/adminimenu")
+    @RequestMapping("/adminMenu")
     public String sellProducts(HttpServletRequest request, Model model,
                                @RequestParam(defaultValue = "1") Integer page,
                                @RequestParam(defaultValue = "10") Integer row) {
@@ -155,7 +155,7 @@ public class SellProductsController {
     @RequestMapping(value = "/updateProduct", method = RequestMethod.POST)
     public String updateGoods(HttpServletRequest request, Product product) {
         sellProductsService.updateProduct(request, product);
-        return "redirect:adminimenu";
+        return "redirect:adminMenu";
     }
 
     /**

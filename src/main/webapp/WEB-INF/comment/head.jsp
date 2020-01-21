@@ -33,7 +33,7 @@
                     </c:if>
                     <c:if test="${sessionScope.user.userRol == 1}">
                         <li><a href="sellOrderList">我的订单</a></li>
-                        <li><a href="adminimenu">我的商品</a></li>
+                        <li><a href="adminMenu">我的商品</a></li>
                     </c:if>
                 </c:if>
             </ul>
@@ -46,3 +46,4 @@
         </div>
     </div>
 </div>
+<div style="border-top:1px #999 solid;"></div>

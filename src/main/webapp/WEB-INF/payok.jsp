@@ -97,7 +97,7 @@
         }
 
         .menu li span a:hover, .menu .back a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .menu li.current span {
@@ -377,7 +377,6 @@
     </div>
 </div>
 <%@ include file="comment/head.jsp" %>
-<div style="border-top:1px #999 solid;"></div>
 <div class="content" style="border-top:none;">
     <div id="breadcrumb">
         <ul>

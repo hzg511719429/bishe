@@ -283,15 +283,6 @@
             <if test="orderAddress != null">
                 order_address = #{orderAddress,jdbcType=VARCHAR},
             </if>
-            <if test="orderTime != null">
-                order_time = #{orderTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="orderDelieveTime != null">
-                order_delieve_time = #{orderDelieveTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="orderFinishTime != null">
-                order_finish_time = #{orderFinishTime,jdbcType=TIMESTAMP},
-            </if>
             <if test="orderTotalPrice != null">
                 order_total_price = #{orderTotalPrice,jdbcType=DOUBLE},
             </if>
@@ -313,9 +304,6 @@
         order_seller_id = #{orderSellerId,jdbcType=BIGINT},
         order_no = #{orderNo,jdbcType=VARCHAR},
         order_address = #{orderAddress,jdbcType=VARCHAR},
-        order_time = #{orderTime,jdbcType=TIMESTAMP},
-        order_delieve_time = #{orderDelieveTime,jdbcType=TIMESTAMP},
-        order_finish_time = #{orderFinishTime,jdbcType=TIMESTAMP},
         order_total_price = #{orderTotalPrice,jdbcType=DOUBLE},
         order_payment = #{orderPayment,jdbcType=VARCHAR},
         order_status = #{orderStatus,jdbcType=CHAR},

@@ -55,7 +55,7 @@ public class SellProcudtsServiceImpl implements SellProductsService {
     public ShopResult updateProduct(HttpServletRequest request, Product product) {
         product.setProductPicture("不使用该字段");
         productMapper.updateByPrimaryKey(product);
-        return ShopResult.build(200, "修改成功", request.getContextPath() + "/adminimenu");
+        return ShopResult.build(200, "修改成功", request.getContextPath() + "/adminMenu");
     }
 
     @Override
@@ -84,7 +84,7 @@ public class SellProcudtsServiceImpl implements SellProductsService {
                 productMapper.updateByPrimaryKey(product);
             }
         }
-        return ShopResult.build(200, "修改成功", request.getContextPath() + "/adminimenu");
+        return ShopResult.build(200, "修改成功", request.getContextPath() + "/adminMenu");
 
     }
 
@@ -111,6 +111,6 @@ public class SellProcudtsServiceImpl implements SellProductsService {
             productimg.setImgurl(entry.getValue());
             productimgMapper.insert(productimg);
         }
-        return ShopResult.build(200, "添加成功", request.getContextPath() + "/adminimenu");
+        return ShopResult.build(200, "添加成功", request.getContextPath() + "/adminMenu");
     }
 }

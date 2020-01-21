@@ -12,7 +12,7 @@
     <style type="text/css">
         html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td{margin:0; padding:0; border:0; outline: 0; font-size: 100%; font-size:12px; text-decoration:none; margin:0 auto; font-family:Verdana, Geneva, sans-serif;}
         a:link,a:visited,a:hover{color:#000;}
-        a:hover{text-decoration: underline;color:#f40;}
+        a:hover{text-decoration: none;color:#f40;}
         ol, ul { list-style: none;}
         body{ font-size:10px; color:#000; background:#eee;}
         .logo{height:75px; width:1100px; margin:auto; background: no-repeat left; }

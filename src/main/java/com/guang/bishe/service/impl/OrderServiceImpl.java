@@ -9,8 +9,11 @@ import com.guang.bishe.service.dto.ItemAndProduct;
 import com.guang.bishe.service.dto.OrderAndUser;
 import com.guang.bishe.service.dto.PageResult;
 import com.guang.bishe.service.util.IDUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +23,7 @@ import java.util.*;
 
 @Service
 public class OrderServiceImpl implements OrderService {
+    private final Logger log = LoggerFactory.getLogger(OrderServiceImpl.class);
 
     @Autowired
     private OrdersMapper ordersMapper;
@@ -89,7 +93,7 @@ public class OrderServiceImpl implements OrderService {
             //时间处理一下
             Calendar now = Calendar.getInstance();
             String[] sj = sc_date.split("-");
-            String newdate = now.get(Calendar.YEAR) + "-" + (now.get(Calendar.MONTH) + 1) + "-" + now.get(Calendar.DAY_OF_MONTH) + " " + sj[0].substring(0, 2) + ":00:00";
+            String newdate = now.get(Calendar.YEAR) + "-" + (now.get(Calendar.MONTH) + 1) + "-" + now.get(Calendar.DAY_OF_MONTH) + " " + sj[1].substring(0, 2) + ":00:00";
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date date1 = null;
             try {
@@ -227,5 +231,23 @@ public class OrderServiceImpl implements OrderService {
         }
         orderAndUser.setList(itemAndProductList);
         return orderAndUser;
+    }
+
+    @Scheduled(fixedRate = 600000)
+    public void checkOrder() {
+        log.info("检测未支付订单是否超时...");
+        OrdersExample ordersExample = new OrdersExample();
+        OrdersExample.Criteria criteria = ordersExample.createCriteria();
+        criteria.andOrderStatusEqualTo("0");
+        List<Orders> orderList = ordersMapper.selectByExample(ordersExample);
+        orderList.forEach(order->{
+            Date finishTime = order.getOrderFinishTime();
+            Date date = new Date();
+            if (date.getTime() - finishTime.getTime() > 600000) {
+                order.setOrderStatus("12");
+                ordersMapper.updateByPrimaryKeySelective(order);
+                log.info("订单已被取消：" + order.getOrderNo());
+            }
+        });
     }
 }

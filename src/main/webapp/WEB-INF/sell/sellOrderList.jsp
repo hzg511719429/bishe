@@ -28,7 +28,7 @@
         }
 
         a:hover {
-            text-decoration: underline;
+            text-decoration: none;
             color: #f40;;
         }
 
@@ -90,7 +90,7 @@
         }
 
         .menu li span a:hover, .menu .back a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .menu li.current span {
@@ -257,13 +257,36 @@
 
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".foot-tab ul li a").each(function () {
+                $(".foot-tab ul li a").click(function () {
+                    $(this).addClass("foot-tab-active").css("color", " #F60")
+                    $(this).removeClass("foot-tab-hover")
+                    $(this).parent("li").siblings().children().addClass("foot-tab-hover").css("color", "#000")
+                    $(this).parent("li").siblings().children().removeClass("foot-tab-active")
+                });
+                $(".foot-tab-hover1").click(function () {
+                    $(this).parent().next().children().addClass("foot-tab-active").css("color", " #F60")
+                    $(this).parent().next().children().removeClass("foot-tab-hover")
+                    $(this).parent().next().siblings().children().addClass("foot-tab-hover").css("color", "#000")
+                    $(this).parent().next().siblings().children().removeClass("foot-tab-active")
+                });
+                $(".foot-tab-hover2").click(function () {
+                    $(this).parent().prev().children().addClass("foot-tab-active").css("color", " #F60")
+                    $(this).parent().prev().children().removeClass("foot-tab-hover")
+                    $(this).parent().prev().siblings().children().addClass("foot-tab-hover").css("color", "#000")
+                    $(this).parent().prev().siblings().children().removeClass("foot-tab-active")
+                });
+            });
+        });
+    </script>
     <title>全部订单</title>
     <script type="text/javascript" src="static/js/jquery.js"></script>
 </head>
 <body>
 <%@ include file="../comment/head.jsp" %>
 
-<div style="border-top:1px #999 solid;"></div>
 <div class="content" style=" border-top:none;">
     <div class="menu-content">
         <table>
@@ -277,41 +300,44 @@
         <div class="tips-button">
             <select name="choose" onchange="submitaction(this)" style="margin-left:860px; width:125px;">
                 <option
-                        <c:if test="${raction=='00'}">selected</c:if> value="00">全部订单
+                        <c:if test="${reAction=='00'}">selected</c:if> value="00">全部订单
                 </option>
                 <option
-                        <c:if test="${raction=='0'}">selected</c:if> value="0">待付款
+                        <c:if test="${reAction=='0'}">selected</c:if> value="0">待付款
                 </option>
                 <option
-                        <c:if test="${raction=='1'}">selected</c:if> value="1">待配送
+                        <c:if test="${reAction=='1'}">selected</c:if> value="1">待配送
                 </option>
                 <option
-                        <c:if test="${raction=='2'}">selected</c:if> value="2">已配送
+                        <c:if test="${reAction=='2'}">selected</c:if> value="2">已配送
                 </option>
                 <option
-                        <c:if test="${raction=='3'}">selected</c:if> value="3">已完成
+                        <c:if test="${reAction=='3'}">selected</c:if> value="3">已完成
                 </option>
                 <option
-                        <c:if test="${raction=='4'}">selected</c:if> value="4">待配送(货到付款)
+                        <c:if test="${reAction=='4'}">selected</c:if> value="4">待配送(货到付款)
                 </option>
                 <option
-                        <c:if test="${raction=='5'}">selected</c:if> value="5">已配送(货到付款)
+                        <c:if test="${reAction=='5'}">selected</c:if> value="5">已配送(货到付款)
                 </option>
                 <option
-                        <c:if test="${raction=='6'}">selected</c:if> value="6">完成(货到付款)
+                        <c:if test="${reAction=='6'}">selected</c:if> value="6">完成(货到付款)
                 </option>
                 <option
-                        <c:if test="${raction=='7'}">selected</c:if> value="7">已评价
+                        <c:if test="${reAction=='7'}">selected</c:if> value="7">已评价
                 </option>
 
                 <option
-                        <c:if test="${raction=='8'}">selected</c:if> value="8">已取消
+                        <c:if test="${reAction=='8'}">selected</c:if> value="8">已取消
                 </option>
                 <option
-                        <c:if test="${raction=='9'}">selected</c:if> value="9">待退款
+                        <c:if test="${reAction=='9'}">selected</c:if> value="9">待退款
                 </option>
                 <option
-                        <c:if test="${raction=='10'}">selected</c:if> value="10">已退款
+                        <c:if test="${reAction=='10'}">selected</c:if> value="10">已退款
+                </option>
+                <option
+                        <c:if test="${reAction=='12'}">selected</c:if> value="12">订单取消
                 </option>
             </select>
         </div>
@@ -326,6 +352,7 @@
                         <%--4：已确定 货到付款 未发货:5：已确定 货到付款 已发货未收货--%>
                         <%--6：已确定 货到付款 已发货 已收货--%>
                         <%--7：已经评价 ；8取消订单;9退款申请（）10已退款;11用户不收货--%>
+                        <%--12：超时10分钟未付款，订单取消--%>
                     <td><c:if test="${order.orderStatus==0}"> 待付款</c:if>
                         <c:if test="${order.orderStatus==1}">待发货</c:if>
                         <c:if test="${order.orderStatus==2}">待收货</c:if>
@@ -338,6 +365,7 @@
                         <c:if test="${order.orderStatus==9}">申请退款</c:if>
                         <c:if test="${order.orderStatus==10}">已退款</c:if>
                         <c:if test="${order.orderStatus==11}">用户未收货</c:if>
+                        <c:if test="${order.orderStatus==12}">订单取消</c:if>
                     </td>
                     <td><c:if test="${order.orderStatus==0}">
                         <button><a style="width:50px;" href="backOrder?orderId=${order.orderId}">退回订单</a></button>
@@ -377,7 +405,7 @@
                         </c:if>
                         <c:if test="${order.orderStatus==10}">已经退款</c:if>
                         <c:if test="${order.orderStatus==11}">用户未接收</c:if>
-
+                        <c:if test="${order.orderStatus==12}">超时10分钟未付款，订单取消</c:if>
                     </td>
                 </tr>
             </c:forEach>
@@ -386,38 +414,29 @@
     </div>
     <div style="width:990px;">
         <div class="foot-tab">
-            <c:if test="${raction!=null && raction!=''}">
+            <c:if test="${reAction!=null && reAction!=''}">
                 <ul>
                     <span id="sli"><a class="foot-tab-hover1"
-                                      <c:if test="${pageResult.curr!=1}">href="sellOrderListAction?action=${raction}"</c:if>
+                                      <c:if test="${pageResult.curr!=1}">href="sellOrderListAction?action=${reAction}"</c:if>
                                       style="width:57px;">首页</a></span>
-
-                        <%--<li><a  class="foot-tab-active" style="color: #F60;" href="#">1</a></li>--%>
-                        <%--<li><a  class="foot-tab-hover" href="#">2</a></li>--%>
-                        <%--<li><a  class="foot-tab-hover" href="#">3</a></li>--%>
-                        <%--<li><a  class="foot-tab-hover" href="#">4</a></li>--%>
-                        <%--<li><a  class="foot-tab-hover" href="#">5</a></li>--%>
-
                     <span><a class="foot-tab-hover2"
-                             <c:if test="${pageResult.curr!=pageResult.pages}">href="sellOrderListAction?page=${pageResult.pages}&action=${raction}"</c:if>
+                             <c:if test="${pageResult.curr!=pageResult.pages}">href="sellOrderListAction?page=${pageResult.pages}&action=${reAction}"</c:if>
                              style="width:57px;">尾页</a></span>
 
-                    <li><input style="padding:0;width: 30px" id="p22" value=""/></li>
+                    <li><input style="padding:0;width: 30px" id="p22" value="1" onkeyup="this.value=this.value.replace(/\D/g,'')"/></li>
                     <li><input style="padding:0;" type="button" name="提交" onclick="tz()" value="跳转"/>
                         共${pageResult.pages}页
                     </li>
                     <script>
                         $(document).ready(function () {
-                            var p =
-                            ${pageResult.curr}
+                            var p = ${pageResult.curr}
                             var classl = "foot-tab-hover";
                             for (var i =${pageResult.pages}; i > 0; i--) {
                                 if (p == i) {
                                     $("#sli").after('<li><a  class="foot-tab-active" style="color: #F60;" >' + i + '</a></li>');
                                 } else {
-                                    $("#sli").after('<li><a  class="foot-tab-hover" href="sellOrderListAction?page=' + i + '&action=${raction}">' + i + '</a></li>');
+                                    $("#sli").after('<li><a  class="foot-tab-hover" href="sellOrderListAction?page=' + i + '&action=${reAction}">' + i + '</a></li>');
                                 }
-
                             }
                         })
 
@@ -428,92 +447,19 @@
                             } else if (tf >${pageResult.pages}) {
                                 alert("大于总页数，请输入正确的页数");
                             } else {
-                                window.location.href = "sellOrderListAction?page=" + tf + "&action=${raction}";
+                                window.location.href = "sellOrderListAction?page=" + tf + "&action=${reAction}";
                             }
 
                         }
                     </script>
                 </ul>
             </c:if>
-            <c:if test="${raction==null || raction==''}">
-                <ul>
-                    <span id="sli"><a class="foot-tab-hover1"
-                                      <c:if test="${pageResult.curr!=1}">href="sellOrderList"</c:if>
-                                      style="width:57px;">首页</a></span>
-
-                        <%--<li><a  class="foot-tab-active" style="color: #F60;" href="#">1</a></li>--%>
-                        <%--<li><a  class="foot-tab-hover" href="#">2</a></li>--%>
-                        <%--<li><a  class="foot-tab-hover" href="#">3</a></li>--%>
-                        <%--<li><a  class="foot-tab-hover" href="#">4</a></li>--%>
-                        <%--<li><a  class="foot-tab-hover" href="#">5</a></li>--%>
-
-                    <span><a class="foot-tab-hover2"
-                             <c:if test="${pageResult.curr!=pageResult.pages}">href="sellOrderList?page=${pageResult.pages}"</c:if>
-                             style="width:57px;">尾页</a></span>
-
-                    <li><input style="padding:0;width: 30px" id="p2" value=""/></li>
-                    <li><input style="padding:0;" type="button" name="提交" onclick="tz()" value="跳转"/>
-                        共${pageResult.pages}页
-                    </li>
-                    <script>
-                        $(document).ready(function () {
-                            var p =
-                            ${pageResult.curr}
-                            var classl = "foot-tab-hover";
-                            for (var i =${pageResult.pages}; i > 0; i--) {
-                                if (p == i) {
-                                    $("#sli").after('<li><a  class="foot-tab-active" style="color: #F60;" >' + i + '</a></li>');
-                                } else {
-                                    $("#sli").after('<li><a  class="foot-tab-hover" href="sellOrderList?page=' + i + '">' + i + '</a></li>');
-                                }
-
-                            }
-                        })
-
-                        function tz() {
-                            var tf = $("#p2").val()
-                            if (tf <= 0) {
-                                alert("请输入正确的页数");
-                            } else if (tf > ${pageResult.pages}) {
-                                alert("大于总页数，请输入正确的页数");
-                            } else {
-                                window.location.href = "sellOrderList?page=" + tf;
-                            }
-                        }
-                    </script>
-                </ul>
-            </c:if>
-
-
         </div>
     </div>
 </div>
 
 </body>
 <script>
-    $(document).ready(function () {
-        $(".foot-tab ul li a").each(function () {
-            $(".foot-tab ul li a").click(function () {
-                $(this).addClass("foot-tab-active").css("color", " #F60")
-                $(this).removeClass("foot-tab-hover")
-                $(this).parent("li").siblings().children().addClass("foot-tab-hover").css("color", "#000")
-                $(this).parent("li").siblings().children().removeClass("foot-tab-active")
-            });
-            $(".foot-tab-hover1").click(function () {
-                $(this).parent().next().children().addClass("foot-tab-active").css("color", " #F60")
-                $(this).parent().next().children().removeClass("foot-tab-hover")
-                $(this).parent().next().siblings().children().addClass("foot-tab-hover").css("color", "#000")
-                $(this).parent().next().siblings().children().removeClass("foot-tab-active")
-            });
-            $(".foot-tab-hover2").click(function () {
-                $(this).parent().prev().children().addClass("foot-tab-active").css("color", " #F60")
-                $(this).parent().prev().children().removeClass("foot-tab-hover")
-                $(this).parent().prev().siblings().children().addClass("foot-tab-hover").css("color", "#000")
-                $(this).parent().prev().siblings().children().removeClass("foot-tab-active")
-            });
-        });
-    });
-
     function submitaction(obj) {
         window.location.href = "sellOrderListAction?action=" + obj.value;
     }

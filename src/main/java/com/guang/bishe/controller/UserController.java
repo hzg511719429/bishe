@@ -181,14 +181,15 @@ public class UserController {
      * 查看评价订单
      */
     @RequestMapping(value = "selectMessageOrder", method = RequestMethod.GET)
-    public String selectMessageOrder(Long id, Model model, HttpServletRequest request) {
+    public String selectMessageOrder(Long orderId, Model model, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         if (null == user) {
             return "login";
         }
-        Orders orders = userService.selectOrderByOrderId(id);
+        Orders orders = userService.selectOrderByOrderId(orderId);
         model.addAttribute("orders", orders);
         model.addAttribute("action", 2);
+        model.addAttribute("role", user.getUserRol());
         return "message";
 
     }

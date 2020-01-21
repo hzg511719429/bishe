@@ -38,6 +38,7 @@ public class SellOrdersController {
         User sellUser = (User) request.getSession().getAttribute("user");
         PageResult pageResult = sellOrdersService.getOrderListByUserId(page, row, sellUser.getUserId());
         model.addAttribute("pageResult", pageResult);
+        model.addAttribute("reAction", "00");
         return "sell/sellOrderList";
     }
 
@@ -59,7 +60,7 @@ public class SellOrdersController {
         User sellUser = (User) request.getSession().getAttribute("user");
         PageResult pageResult = sellOrdersService.selectOrderListAction(page, row, sellUser.getUserId(), action);
         model.addAttribute("pageResult", pageResult);
-        model.addAttribute("raction", action);
+        model.addAttribute("reAction", action);
         return "sell/sellOrderList";
     }
 

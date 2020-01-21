@@ -28,7 +28,7 @@
         }
 
         a:hover {
-            text-decoration: underline;
+            text-decoration: none;
             color: #f40;;
         }
 
@@ -90,7 +90,7 @@
         }
 
         .menu li span a:hover, .menu .back a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .menu li.current span {

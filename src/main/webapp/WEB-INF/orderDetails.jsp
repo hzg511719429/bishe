@@ -14,7 +14,7 @@
     <style type="text/css">
         html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td{margin:0; padding:0; border:0; outline: 0; font-size: 100%; font-size:12px; text-decoration:none; margin:0 auto; font-family:Verdana, Geneva, sans-serif;}
         a:link,a:visited,a:hover{color:#000;}
-        a:hover{text-decoration: underline; color:#f40;;}
+        a:hover{text-decoration: none; color:#f40;;}
         ol, ul { list-style: none;}
         body{ font-size:10px; color:#000; background:#eee;}
         .logo{height:75px; width:1100px; margin:auto; background: no-repeat left; }
@@ -63,7 +63,7 @@
 <body>
 
 <%@ include file="comment/head.jsp" %>
-<div style="border-top:1px #999 solid;"></div>
+
 <div class="content"  style="border-top:none; min-height: calc(100vh - 100px)">
     <div class="main" >
         <div class="main-tab">订单详情</div>
@@ -124,6 +124,7 @@
                                 <c:if test="${orderAndUser.orderStatus==9}">申请退款</c:if>
                                 <c:if test="${orderAndUser.orderStatus==10}">已退款</c:if>
                                 <c:if test="${orderAndUser.orderStatus==11}">用户拒收</c:if>
+                                <c:if test="${orderAndUser.orderStatus==12}">订单取消</c:if>
                             </td>
 
                             <td rowspan="${orderAndUser.list.size()}"> <c:if test="${orderAndUser.orderStatus==0}"> <button><a style="width:50px;" href="gopay?ordersn=${orderAndUser.orderId}&all=1">付款</a></button>&nbsp;&nbsp;
@@ -140,6 +141,7 @@
                                 <c:if test="${orderAndUser.orderStatus==9}">等待退款</c:if>
                                 <c:if test="${orderAndUser.orderStatus==10}">已退款</c:if>
                                 <c:if test="${orderAndUser.orderStatus==11}">用户拒收</c:if>
+                                <c:if test="${orderAndUser.orderStatus==12}">超时10分钟未付款，订单取消</c:if>
                             </td>
                         </c:if>
                     </tr>

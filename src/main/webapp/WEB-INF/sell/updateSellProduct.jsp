@@ -28,7 +28,7 @@
         }
 
         a:hover {
-            text-decoration: underline;
+            text-decoration: none;
             color: #f40;
         }
 
@@ -90,7 +90,7 @@
         }
 
         .menu li span a:hover, .menu .back a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .menu li.current span {
@@ -423,7 +423,7 @@
 <body>
 
 <%@ include file="../comment/head.jsp" %>
-<div style="border-top:1px #999 solid;"></div>
+
 <div class="function2">
     <form action="updateProduct" method="POST" onsubmit="return add_product(this)">
         <div class="function-head">正在修改菜品</div>
@@ -498,7 +498,7 @@
 <script>
 
     function returnProductList() {
-        window.location.href = "adminimenu";
+        window.location.href = "adminMenu";
     }
 
     //定义一个全局变量 用来保存图片上传的次数,一次最多只能上传6张

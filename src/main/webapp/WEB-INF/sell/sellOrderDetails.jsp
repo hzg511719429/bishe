@@ -29,7 +29,7 @@
         }
 
         a:hover {
-            text-decoration: underline;
+            text-decoration: none;
             color: #f40;
         }
 
@@ -91,7 +91,7 @@
         }
 
         .menu li span a:hover, .menu .back a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .menu li.current span {
@@ -198,6 +198,8 @@
 
         .main-p {
             background: #a4bed4;
+            height: 30px;
+            line-height: 30px;
         }
 
         .main-msg span {
@@ -218,7 +220,6 @@
 <body>
 <%@ include file="../comment/head.jsp" %>
 
-<div style="border-top:1px #999 solid;"></div>
 <div class="content" style="border-top:none;">
     <div class="main">
         <div class="main-tab">订单详情</div>
@@ -232,7 +233,7 @@
                     <col width="100"/>
                     <col width="100"/>
                 </colgroup>
-                <tr class="main-tab-ex-tr1" height="26" style=" ">
+                <tr class="main-tab-ex-tr1" height="30" style=" ">
                     <td colspan="6">订单编号：${orderAndUser.orderNo}</td>
                 </tr>
                 <tr class="main-tab-ex-tr2" height="50">
@@ -244,7 +245,7 @@
                     <td><a><fmt:formatDate value="${orderAndUser.orderDelieveTime}" pattern="yyyy-MM-dd hh:MM:ss"/></a>
                     </td>
                 </tr>
-                <tr class="main-tab-ex-tr2">
+                <tr class="main-tab-ex-tr2" height="30">
                     <td colspan="6">配送地点:<em>${orderAndUser.address}</em></td>
                 </tr>
                 <tr class="main-tab-ex-tr1" height="50">
@@ -278,6 +279,7 @@
                                 <c:if test="${orderAndUser.orderStatus == 9}">申请退款</c:if>
                                 <c:if test="${orderAndUser.orderStatus == 10}">已退款</c:if>
                                 <c:if test="${orderAndUser.orderStatus == 11}">用户未收货</c:if>
+                                <c:if test="${orderAndUser.orderStatus == 12}">订单取消</c:if>
                             </td>
                             <td rowspan="${orderAndUser.list.size()}">
                                 <c:if test="${orderAndUser.orderStatus == 0}">
@@ -317,7 +319,7 @@
                                 <c:if test="${orderAndUser.orderStatus == 6}">用户未评价</c:if>
                                 <c:if test="${orderAndUser.orderStatus == 7}">
                                     <button><a style="width:50px;"
-                                               href="sellSelectMessageOrder?orderId=${orderAndUser.orderId}">已评价</a>
+                                               href="selectMessageOrder?orderId=${orderAndUser.orderId}">已评价</a>
                                     </button>
                                 </c:if>
                                 <c:if test="${orderAndUser.orderStatus == 8}">已经取消</c:if>
@@ -327,6 +329,7 @@
                                 </c:if>
                                 <c:if test="${orderAndUser.orderStatus == 10}">已经退款</c:if>
                                 <c:if test="${orderAndUser.orderStatus == 11}">用户未接收</c:if>
+                                <c:if test="${orderAndUser.orderStatus == 12}">超时10分钟未付款，订单取消</c:if>
                             </td>
                         </c:if>
                     </tr>
