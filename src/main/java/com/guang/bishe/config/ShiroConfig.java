@@ -54,6 +54,7 @@ public class ShiroConfig {
         map.put("/login", "anon");
         map.put("/regist", "anon");
         map.put("/mailEditPassword", "anon");
+        map.put("/editPassword", "anon");
         map.put("/index", "anon");
         //对所有用户认证
         map.put("/**", "authc");

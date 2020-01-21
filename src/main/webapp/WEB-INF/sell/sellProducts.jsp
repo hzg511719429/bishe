@@ -62,8 +62,8 @@
             left: 280px;
             width: 535px;
             height: 31px;
-            background: url(../../static/img/navbg.gif) repeat-x;
-            padding-left: 7px;
+            background: mediumseagreen;
+
         }
 
         .menu li {
@@ -132,6 +132,10 @@
         }
 
         .menu-content .tr1 {
+            height: 38px;
+            background: #eee;
+        }
+        .menu-content tr {
             height: 38px;
             background: #eee;
         }
@@ -280,7 +284,6 @@
         .function td, .function2 td {
             height: 60px;
             text-align: center;
-            background: #8D9;
             border-width: 2px;
             border-style: solid;
             border-color: #DFDFDF #ADADAD #ADADAD #DFDFDF;

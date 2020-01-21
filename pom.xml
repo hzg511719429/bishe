@@ -19,6 +19,10 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
         <!--本地导入的,支付宝沙盒jar包7个  其他的项目中有-->
         <dependency>
             <groupId>alipay-sdk-java20170105134539</groupId>

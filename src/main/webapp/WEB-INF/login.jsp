@@ -22,13 +22,6 @@
             font-family: Verdana, Geneva, sans-serif;
         }
 
-        a:link, a:visited, a:hover {
-            color: #000;
-        }
-
-        a:hover {
-            color: #f40;
-        }
 
         ol, ul {
             list-style: none;
@@ -60,8 +53,7 @@
             left: 280px;
             width: 535px;
             height: 31px;
-            background: url(static/img/navbg.gif) repeat-x;
-            padding-left: 7px;
+            background: mediumseagreen;
         }
 
         .menu li {
@@ -119,124 +111,88 @@
         }
 
         .content {
-            background: #C2EAED;
-            height: 500px;
+            background: linear-gradient(to bottom right,#145fd7,#41b2f1);
+            height: 400px;
             padding-top: 150px;
-        }
-
-        .loginbar {
-            width: 400px;
-            height: 235px;
-            background: #F9F9F9;
-            padding: 13px 0px 0px 25px;
-            border: #D8D8D8 1px solid;
-        }
-
-        #loginbar-form {
-            margin-top: 18px;
-            width: 350px;
-        }
-
-        #loginbar-form dt {
-            float: left;
-            font-size: 14px;
-            color: #EFA100;
-            text-align: center;
-            width: 7em;
-            line-height: 26px;
-        }
-
-        #loginbar-form dl {
-            padding: 10px 2px;
-        }
-
-        #loginbar-form input {
-            height: 26px;
-            margin-left: 10px;
-            border: #F08300 1px solid;
-            width: 150px;
-            line-height: 26px;
-        }
-
-        #loginbar-form .btn {
-            float: left;
-            border: none;
-            height: 35px;
-            width: 98px;
-            background: url(static/img/login.png) no-repeat 0 -56px;
-            color: #FFF;
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        #loginbar-form .btn:hover {
-            background: url(static/img/login.png) no-repeat 0 -91px;
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>登陆</title>
     <script type="text/javascript" src="static/js/jquery.js"></script>
+    <link rel="stylesheet"  type="text/css" href="static/css/style1.css">
+    <link rel="stylesheet" type="text/css" href="static/css/reset.css"/>
 </head>
 <body>
 <%@include file="comment/head.jsp" %>
 
-<div class="content">
-    <div class="loginbar">
-        <h3 style="font: '新宋体'; font-size:18px;line-height:20px; color:#EFA100;">馋嘴猫请登陆</h3>
-        <form id="loginbar-form" action="login" onsubmit="return checkForm()" method="post">
-            <h1 id="hs1" style="color: red;margin-left: 110px">${message}</h1>
-            <dl>
-                <dt>请输入用户名：</dt>
-                <dd>
-                    <input type="text" id="user_name" name="userEmail" class="text"
-                           onfocus="this.style.border='1px solid #f60';"
-                           onblur="this.style.border='1px solid #F08300';"
-                           title="3-20位字符，可由英文、数字”@”组成"/>
-                </dd>
-            </dl>
-            <dl>
-                <dt>请输入密码：</dt>
-                <dd>
-                    <input type="password" id="password" name="userPassword" class="text"
-                           onfocus="this.style.border='1px solid #f60';"
-                           onblur="this.style.border='1px solid #F08300';"
-                           title="6-16位字符，可由英文、数字及标点符号组成"/>
-                    &nbsp;&nbsp;<a style="color:#F00;" href="mailEditPassword">忘&nbsp;记&nbsp;密&nbsp;码&nbsp;!</a>
-                </dd>
-            </dl>
-            <dl>
-                <dd style="margin-left:35px; margin-top:18px;">
-                    <button class="btn" type="submit"><a style="color:#fff;text-decoration: none">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
-                    </button>
-                    <p style="padding:15px 0px 0px 200px;">
-                        <a href="regist" style="color:#0CF;">马&nbsp;上&nbsp;注&nbsp;册</a>
-                    </p>
-                </dd>
-            </dl>
+<div class="content" id="particles-js">
+    <div class="login">
+        <div class="login-top">
+            登录
+        </div>
+        <form action="login" method="post">
+            <div class="login-center clearfix">
+                <div class="login-center-img"><img src="static/img/name.png"/></div>
+                <div class="login-center-input">
+                    <input id="username" type="text" name="userEmail" value="" placeholder="请输入您的用户名" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的用户名'"/>
+                    <div class="login-center-input-text">用户名</div>
+                </div>
+            </div>
+            <div class="login-center clearfix">
+                <div class="login-center-img"><img src="static/img/password.png"/></div>
+                <div class="login-center-input">
+                    <input id="password" type="password" name="userPassword"value="" placeholder="请输入您的密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'"/>
+                    <div class="login-center-input-text">密码</div>
+                    <p style="text-align: left;color:#F00;padding-top: 10px">${message}</p>
+                </div>
+            </div>
+            <p style="text-align: right;padding-right: 50px;"><a style="color:#F00;" href="mailEditPassword">忘&nbsp;记&nbsp;密&nbsp;码&nbsp;!</a></p>
+            <button class="login-button-left" type="submit">
+                登录
+            </button>
+            <a class="login-button-right" href="regist">
+                注册
+            </a>
         </form>
-    </div><!--the regsiter end-->
+    </div>
+    <div class="sk-rotating-plane"></div>
 </div><!-- the content end-->
 </body>
 <script>
-    function checkForm() {
-        var name = $("#user_name").val();
-        var password = $("#password").val();
-        //非空校验
-        if (name == "" || name == null) {
-            clean();
-            $("#hs1").html("用户名不能为空！");
-            return false;
-        } else if (password == "" || password == null) {
-            clean();
-            $("#hs1").html("密码不能为空！");
-            return false;
-        }
-        return true;
+    function hasClass(elem, cls) {
+        cls = cls || '';
+        if (cls.replace(/\s/g, '').length == 0) return false; //当cls没有参数时，返回false
+        return new RegExp(' ' + cls + ' ').test(' ' + elem.className + ' ');
     }
 
-    //清空信息
-    function clean() {
-        $("#hs1").html();
+    function addClass(ele, cls) {
+        if (!hasClass(ele, cls)) {
+            ele.className = ele.className == '' ? cls : ele.className + ' ' + cls;
+        }
+    }
+
+    function removeClass(ele, cls) {
+        if (hasClass(ele, cls)) {
+            var newClass = ' ' + ele.className.replace(/[\t\r\n]/g, '') + ' ';
+            while (newClass.indexOf(' ' + cls + ' ') >= 0) {
+                newClass = newClass.replace(' ' + cls + ' ', ' ');
+            }
+            ele.className = newClass.replace(/^\s+|\s+$/g, '');
+        }
+    }
+    document.querySelector(".login-button").onclick = function(){
+        addClass(document.querySelector(".login"), "active")
+        setTimeout(function(){
+            addClass(document.querySelector(".sk-rotating-plane"), "active")
+            document.querySelector(".login").style.display = "none"
+        },800)
+        setTimeout(function(){
+            removeClass(document.querySelector(".login"), "active")
+            removeClass(document.querySelector(".sk-rotating-plane"), "active")
+            document.querySelector(".login").style.display = "block"
+            alert("登录成功")
+
+        },5000)
     }
 </script>
 </html>

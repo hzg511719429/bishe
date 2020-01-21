@@ -8,6 +8,18 @@ spring:
     view:
       prefix: /WEB-INF/
       suffix: .jsp
+  mail: ## QQ邮箱配置
+    host: smtp.qq.com #发送邮件服务器
+    username: 511719429@qq.com #发送邮件的邮箱地址
+    password: tifkoyvqtqncbhee #客户端授权码，不是邮箱密码，这个在qq邮箱设置里面自动生成的
+    from: 511719429@qq.com # 发送邮件的地址，和上面username一致
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 mybatis:
   type-aliases-package: com.guang.bishe.mapper
   mapper-locations: classpath:mapper/*.xml

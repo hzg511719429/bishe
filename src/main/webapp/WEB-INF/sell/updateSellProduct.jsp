@@ -62,8 +62,8 @@
             left: 280px;
             width: 535px;
             height: 31px;
-            background: url(../../static/img/navbg.gif) repeat-x;
-            padding-left: 7px;
+            background: mediumseagreen;
+
         }
 
         .menu li {
@@ -269,9 +269,8 @@
         }
 
         .function2 {
-            position: absolute;
             top: 76px;
-            width: 100%;
+            width: 990px;
             height: 552px;
             background: #DBEAF9;
             margin: 0 auto;
@@ -280,7 +279,6 @@
         .function td, .function2 td {
             height: 60px;
             text-align: center;
-            background: #8D9;
             border-width: 2px;
             border-style: solid;
             border-color: #DFDFDF #ADADAD #ADADAD #DFDFDF;
@@ -425,7 +423,7 @@
 <body>
 
 <%@ include file="../comment/head.jsp" %>
-
+<div style="border-top:1px #999 solid;"></div>
 <div class="function2">
     <form action="updateProduct" method="POST" onsubmit="return add_product(this)">
         <div class="function-head">正在修改菜品</div>
@@ -487,10 +485,10 @@
                 <textarea name="productDescription" cols="" rows="" class="textarea">${product.productDescription}</textarea>
             </div>
         </div>
-        <div class=" function-foot">
-            <input value="确认修改" style="position:absolute;  top:10px; width:104px; left:300px;" type="submit"/>
+        <div class="function-foot">
+            <input value="确认修改" style="position:absolute;  top:10px; width:104px; left:150px;" type="submit"/>
             <input type="button" value="取消操作" onclick="returnProductList()"
-                   style="position:absolute;  top:10px; width:104px; left:950px;"/>
+                   style="position:absolute;  top:10px; width:104px; left:750px;"/>
         </div>
     </form>
 </div>

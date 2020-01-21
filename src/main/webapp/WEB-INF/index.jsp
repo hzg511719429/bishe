@@ -63,8 +63,8 @@
             left: 280px;
             width: 535px;
             height: 31px;
-            background: url(../static/img/navbg.gif) repeat-x;
-            padding-left: 7px;
+            background: mediumseagreen;
+
         }
 
         .menu li {
@@ -358,7 +358,7 @@
 <%@ include file="comment/head.jsp" %>
 
 <div class="conntn">
-    <div style="width:900px; padding-top:100px; overflow:auto;zoom:1; ">
+    <div style="width:900px; padding-top:50px; overflow:auto;zoom:1; ">
         <div class="main-nav">
             <div class="main-msg">菜色</div>
             <form action="index" id="search_form" method="get">

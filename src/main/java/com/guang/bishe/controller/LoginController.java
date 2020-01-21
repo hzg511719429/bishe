@@ -1,7 +1,9 @@
 package com.guang.bishe.controller;
 
 import com.guang.bishe.domain.User;
+import com.guang.bishe.service.IMailService;
 import com.guang.bishe.service.LoginService;
+import com.guang.bishe.service.dto.ShopResult;
 import com.guang.bishe.service.util.MD5Util;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -15,12 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 @Controller
 public class LoginController {
 
     @Autowired
     private LoginService loginService;
+    @Autowired
+    private IMailService iMailService;
 
     /**
      * 跳转登录页面
@@ -45,16 +50,15 @@ public class LoginController {
             List<User> userList = loginService.getUser(user);
             if (userList.size() <= 0) {
                 model.addAttribute("message", "用户名或密码不正确！");
-                return "/login";
+                return "login";
             } else {
                 request.getSession().setAttribute("user", userList.get(0));
                 return "redirect:index";
             }
         } catch (Exception e) {
             model.addAttribute("message", "用户名或密码错误");
-            return "/login";
+            return "login";
         }
-
     }
 
     /**
@@ -74,7 +78,7 @@ public class LoginController {
      * @param model
      * @return
      */
-    @PostMapping(value = "/mailEditPassword")
+    @PostMapping("/mailEditPassword")
     public String toResetPassword(String email, Model model) {
         String format = "\\w{2,15}[@][a-z0-9]{2,}[.]\\p{Lower}{2,}";
         if (email == null || email == "") {
@@ -89,7 +93,23 @@ public class LoginController {
             model.addAttribute("semail", "不存在此用户");
             return "mailEditPassword";
         }
-        model.addAttribute("userId", user.getUserId());
+        //异步
+        CompletableFuture.runAsync(()->{
+            iMailService.sendHtmlMail(email, "主题：修改密码",
+                    "<a href='http://localhost:82/editPassword?userId=" + user.getUserId() + "'>跳转重置密码页面</a>");
+        });
+        model.addAttribute("view","login");
+        model.addAttribute("message","请去邮件重置密码！");
+        return  "success";
+    }
+
+    /**
+     * 准备跳转重置密码页面
+     * @return
+     */
+    @GetMapping("/editPassword")
+    public String editPassword(Long userId, Model model) {
+        model.addAttribute("userId", userId);
         return "editPassword";
     }
 
@@ -101,7 +121,7 @@ public class LoginController {
      * @param model
      * @return
      */
-    @PostMapping(value = "/editPassword")
+    @PostMapping("/editPassword")
     public String editPassword(String password, String passwordAgain, Long userId, Model model) {
         if (password == null || password == "") {
             model.addAttribute("spassword", "密码不能为空");

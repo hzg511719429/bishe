@@ -70,8 +70,8 @@
             left: 280px;
             width: 535px;
             height: 31px;
-            background: url(../static/img/navbg.gif) repeat-x;
-            padding-left: 7px;
+            background: mediumseagreen;
+
         }
 
         .menu li {

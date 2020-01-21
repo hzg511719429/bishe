@@ -19,7 +19,7 @@
         body{ font-size:10px; color:#000; background:#eee;}
         .logo{height:75px; width:1100px; margin:auto; background: no-repeat left; }
         .nav{ position:absolute; float:left; width:0; height:0;}
-        .menu{ position: relative; top:44px; left:280px;width:535px;height:31px;background:url(static/img/navbg.gif) repeat-x;padding-left:7px;}
+        .menu{ position: relative; top:44px; left:280px;width:535px;height:31px;background:mediumseagreen;padding-left:7px;}
         .menu li{float:left;width:107px;height:27px;margin-top:4px;background:url(static/img/navline.gif) no-repeat right 3px;}
         .menu li span{display:block;width:98px;height:27px;margin-left:4px;text-align:center;line-height:27px;}
         .menu li span a,.menu .back a{color:#fff;text-decoration:none; display:block;}
