@@ -3,7 +3,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://localhost:3306/diancan?serverTimezone=GMT%2B8
     username: root
-    password: root
+    password: 511719429
   mvc:
     view:
       prefix: /WEB-INF/

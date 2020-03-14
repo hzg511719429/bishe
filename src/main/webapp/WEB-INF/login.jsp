@@ -112,7 +112,7 @@
 
         .content {
             background: linear-gradient(to bottom right,#145fd7,#41b2f1);
-            height: 400px;
+            height: 500px;
             padding-top: 150px;
         }
     </style>
@@ -123,7 +123,6 @@
     <link rel="stylesheet" type="text/css" href="static/css/reset.css"/>
 </head>
 <body>
-<%@include file="comment/head.jsp" %>
 
 <div class="content" id="particles-js">
     <div class="login">
